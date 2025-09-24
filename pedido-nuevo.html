@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar nuevo evento</title>
+</head>
+<body>
+  <h2>Agregar nuevo evento</h2>
+
+<input type="file" id="cargarJson" accept=".json"><br><br>
+
+<form id="formAgregar" style="display:none;">
+  <h3>Agregar nuevo evento</h3>
+  <label>Nombre del cliente: <input type="text" id="nombreCliente" required></label><br><br>
+  <label>Fecha: <input type="date" id="fecha" required></label><br><br>
+  <label>Ubicación: <input type="text" id="ubicacion" required></label><br><br>
+  <label>Productos (separados por comas): <input type="text" id="productos" required></label><br><br>
+  <label>Descripción: <input type="text" id="descripcion"></label><br><br>
+  <button type="submit">Guardar evento</button>
+</form>
+
+<script>
+  let datosJson = [];
+
+  // Leer archivo JSON
+  document.getElementById("cargarJson").addEventListener("change", function(e) {
+    const archivo = e.target.files[0];
+    if (!archivo) return;
+
+    const lector = new FileReader();
+    lector.onload = function(evento) {
+      try {
+        datosJson = JSON.parse(evento.target.result);
+
+        // Asegurar que sea un arreglo
+        if (!Array.isArray(datosJson)) {
+          datosJson = [datosJson];
+        }
+
+        document.getElementById("formAgregar").style.display = "block";
+
+      } catch (error) {
+        alert("El archivo no es un JSON válido.");
+      }
+    };
+    lector.readAsText(archivo);
+  });
+
+  // Agregar nuevo evento
+  document.getElementById("formAgregar").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nuevoEvento = {
+      "nombre del cliente": document.getElementById("nombreCliente").value,
+      "fecha": document.getElementById("fecha").value,
+      "ubicacion": document.getElementById("ubicacion").value,
+      "productos": document.getElementById("productos").value
+                    .split(",")
+                    .map(item => item.trim())
+                    .filter(item => item !== ""),
+      "descripcion": document.getElementById("descripcion").value
+    };
+
+    datosJson.push(nuevoEvento);
+
+    const jsonString = JSON.stringify(datosJson, null, 2);
+
+    // Descargar el archivo actualizado
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const enlace = document.createElement("a");
+    enlace.href = URL.createObjectURL(blob);
+    enlace.download = "Eventos_actualizado.json";
+    enlace.click();
+
+    // Limpiar formulario
+    document.getElementById("formAgregar").reset();
+  });
+</script>
+</body>
+</html> 
