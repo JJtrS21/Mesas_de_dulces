@@ -1,0 +1,4 @@
+los coamndos para iniciar node js y ejecute el proyecto
+npm init -y
+npm install express body-parser cors
+node server.js

@@ -1,9 +1,32 @@
 [
-    {
-        "nombre del cliente": "Carlos Perez",
-        "fecha": "2024-10-01",
-        "ubicacion": "Calle Falsa 123",
-        "productos": ["Producto A", "Producto B"],
-        "descripcion": "Entrega urgente"
-    }
+  {
+    "nombre del cliente": "Carlos Perez",
+    "fecha": "2024-10-01",
+    "ubicacion": "Calle Falsa 123",
+    "productos": [
+      "Producto A",
+      "Producto B"
+    ],
+    "descripcion": "Entrega urgente"
+  },
+  {
+    "nombreCliente": "Maria Teresa",
+    "fecha": "2025-09-24",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Nora ",
+    "fecha": "2025-10-02",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  }
 ]
