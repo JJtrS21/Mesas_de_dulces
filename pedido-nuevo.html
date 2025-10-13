@@ -16,6 +16,9 @@
   <label>Productos (separados por comas): <input type="text" id="productos" required></label><br><br>
   <label>Descripción: <input type="text" id="descripcion"></label><br><br>
   <button type="submit">Guardar evento</button>
+
+  <br>
+  <p><a href="index.html" id="btn-new">Volver al inicio</a></p>
 </form>
 
 <script>
@@ -47,12 +50,18 @@
     })
   })
   .then(res => res.json())
-  .then(data => console.log('Servidor respondió:', data))
-  .catch(err => console.error('Error al enviar datos:', err));
-  
-    // Limpiar formulario
+  .then(data => {
+    console.log('Servidor respondió:', data);
+    alert("✅ Evento agregado correctamente.");
+      
+  // Limpiar formulario
     document.getElementById("formAgregar").reset();
+  })
+  .catch(err => {
+    console.error('Error al enviar datos:', err);
+    alert("❌ Error al guardar el evento.");
   });
+});
 </script>
 </body>
-</html> 
+</html>

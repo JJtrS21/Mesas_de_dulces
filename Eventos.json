@@ -20,7 +20,7 @@
     "descripcion": "Mesa de dulces"
   },
   {
-    "nombreCliente": "Nora ",
+    "nombreCliente": "Nora",
     "fecha": "2025-10-02",
     "ubicacion": "Localidad Fei",
     "productos": [
@@ -28,5 +28,25 @@
       "3 kg de gomitas"
     ],
     "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "fecha": "2025-11-01",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Dulces",
+      "Gomitas",
+      "Pasteles"
+    ],
+    "descripcion": "Prueba"
+  },
+  {
+    "nombreCliente": "vbdfndgndbsfb",
+    "fecha": "2025-10-01",
+    "ubicacion": "sgsfesf",
+    "productos": [
+      "dbfdb"
+    ],
+    "descripcion": "Prueba"
   }
 ]
