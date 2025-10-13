@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle del evento</title>
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header>
+    <h1>Detalle del evento</h1>
+  </header>
+
+  <!-- Contenedor principal del evento -->
+  <main>
+    <!-- Nombre del cliente -->
+    <h2 id="nombreCliente">Cargando...</h2>
+
+    <!-- Fecha y ubicación -->
+    <section id="infoBasica">
+      <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+      <p><strong>Ubicación:</strong> <span id="ubicacion"></span></p>
+    </section>
+
+    <!-- Productos -->
+    <section id="productos">
+      <h3>Productos</h3>
+      <ul id="listaProductos"></ul>
+    </section>
+
+    <!-- Descripción -->
+    <section id="descripcion">
+      <h3>Descripción</h3>
+      <p id="textoDescripcion"></p>
+    </section>
+  </main>
+
+  <!-- Navegación entre eventos -->
+  <nav>
+    <button id="anterior">Evento anterior</button>
+    <button id="siguiente">Evento siguiente</button>
+  </nav>
+
+  <!-- Botón para editar -->
+  <div style="margin-top: 20px;">
+    <button id="editar">Modificar este evento</button>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    let idEvento = parseInt(params.get('id')) || 0; // por defecto muestra el primero
+
+    fetch('Eventos.json')
+      .then(response => response.json())
+      .then(data => {
+        // Función para actualizar la vista según el evento actual
+        function mostrarEvento(index) {
+          if (index < 0 || index >= data.length) return;
+
+          const evento = data[index];
+          document.getElementById("nombreCliente").textContent = evento.nombreCliente;
+          document.getElementById("fecha").textContent = evento.fecha;
+          document.getElementById("ubicacion").textContent = evento.ubicacion;
+          document.getElementById("textoDescripcion").textContent = evento.descripcion;
+
+          const lista = document.getElementById("listaProductos");
+          lista.innerHTML = "";
+          evento.productos.forEach(p => {
+            const li = document.createElement("li");
+            li.textContent = p;
+            lista.appendChild(li);
+          });
+        }
+
+        // Mostrar el evento inicial
+        mostrarEvento(idEvento);
+
+        // Navegación simple (sin recargar)
+        document.getElementById("anterior").addEventListener("click", () => {
+          if (idEvento > 0) {
+            idEvento--;
+            mostrarEvento(idEvento);
+          }
+        });
+
+        document.getElementById("siguiente").addEventListener("click", () => {
+          if (idEvento < data.length - 1) {
+            idEvento++;
+            mostrarEvento(idEvento);
+          }
+        });
+      })
+      .catch(err => {
+        console.error("Error al cargar el JSON:", err);
+        document.getElementById("nombreCliente").textContent = "Error al cargar los datos";
+      });
+
+    document.getElementById("editar").addEventListener("click", () => {
+      window.location.href = `modificar.html?id=${idEvento}`;
+    });
+
+  </script>
+
+</body>
+</html>

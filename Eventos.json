@@ -1,9 +1,59 @@
 [
-    {
-        "nombre del cliente": "Carlos Perez",
-        "fecha": "2024-10-01",
-        "ubicacion": "Calle Falsa 123",
-        "productos": ["Producto A", "Producto B"],
-        "descripcion": "Entrega urgente"
-    }
+  {
+    "nombreCliente": "Carlos Perez",
+    "fecha": "2024-10-01",
+    "ubicacion": "Calle Falsa 123",
+    "productos": [
+      "Producto A",
+      "Producto B"
+    ],
+    "descripcion": "Entrega urgente"
+  },
+  {
+    "nombreCliente": "Maria Teresa",
+    "fecha": "2025-09-24",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Nora",
+    "fecha": "2025-10-02",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "sdcvsvv",
+    "fecha": "2025-10-14",
+    "ubicacion": "sdcsdvsd",
+    "productos": [
+      "sdvsdvdsv"
+    ],
+    "descripcion": "MODIFICADO"
+  },
+  {
+    "nombreCliente": "1",
+    "fecha": "2025-10-09",
+    "ubicacion": "1",
+    "productos": [
+      "1"
+    ],
+    "descripcion": "1"
+  },
+  {
+    "nombreCliente": "dggr",
+    "fecha": "2025-10-09",
+    "ubicacion": "dfbfgf",
+    "productos": [
+      "vdzzzzzzzz"
+    ],
+    "descripcion": "zdvvvvvvvvv"
+  }
 ]

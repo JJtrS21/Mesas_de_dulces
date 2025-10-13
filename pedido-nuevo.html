@@ -6,8 +6,7 @@
 </head>
 <body>
   <h2>Agregar nuevo evento</h2>
-
-<input type="file" id="cargarJson" accept=".json"><br><br>
+  
 
 <form id="formAgregar" style="display:none;">
   <h3>Agregar nuevo evento</h3>
@@ -23,55 +22,34 @@
   let datosJson = [];
 
   // Leer archivo JSON
-  document.getElementById("cargarJson").addEventListener("change", function(e) {
-    const archivo = e.target.files[0];
-    if (!archivo) return;
-
-    const lector = new FileReader();
-    lector.onload = function(evento) {
-      try {
-        datosJson = JSON.parse(evento.target.result);
-
-        // Asegurar que sea un arreglo
-        if (!Array.isArray(datosJson)) {
-          datosJson = [datosJson];
-        }
-
-        document.getElementById("formAgregar").style.display = "block";
-
-      } catch (error) {
-        alert("El archivo no es un JSON válido.");
-      }
-    };
-    lector.readAsText(archivo);
-  });
+ fetch('Eventos.json')
+    .then(response => response.json())
+    .then(data => {
+      datosJson = data;
+      document.getElementById("formAgregar").style.display = "block";
+    })
+    .catch(error => console.error('Error al cargar el archivo JSON:', error));
 
   // Agregar nuevo evento
-  document.getElementById("formAgregar").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nuevoEvento = {
-      "nombre del cliente": document.getElementById("nombreCliente").value,
-      "fecha": document.getElementById("fecha").value,
-      "ubicacion": document.getElementById("ubicacion").value,
-      "productos": document.getElementById("productos").value
-                    .split(",")
-                    .map(item => item.trim())
-                    .filter(item => item !== ""),
-      "descripcion": document.getElementById("descripcion").value
-    };
-
-    datosJson.push(nuevoEvento);
-
-    const jsonString = JSON.stringify(datosJson, null, 2);
-
-    // Descargar el archivo actualizado
-    const blob = new Blob([jsonString], { type: "application/json" });
-    const enlace = document.createElement("a");
-    enlace.href = URL.createObjectURL(blob);
-    enlace.download = "Eventos_actualizado.json";
-    enlace.click();
-
+  document.getElementById("formAgregar").addEventListener("submit", function(event) {
+    event.preventDefault();
+  fetch('http://localhost:3000/api/pedidos', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      nombreCliente: document.getElementById('nombreCliente').value,
+      fecha: document.getElementById('fecha').value,
+      ubicacion: document.getElementById('ubicacion').value,
+      productos: document.getElementById('productos').value.split(',').map(p => p.trim()),
+      descripcion: document.getElementById('descripcion').value
+    })
+  })
+  .then(res => res.json())
+  .then(data => console.log('Servidor respondió:', data))
+  .catch(err => console.error('Error al enviar datos:', err));
+  
     // Limpiar formulario
     document.getElementById("formAgregar").reset();
   });
