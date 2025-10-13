@@ -4,6 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesas de dulces - Inicio</title>
+    <style>
+  /* --- Estilos generales de la tabla --- */
+  .tabla-eventos {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  /* --- Encabezado --- */
+  .tabla-eventos thead {
+    background-color: #f3a683;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .tabla-eventos th, .tabla-eventos td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+
+  /* --- Filas alternas --- */
+  .tabla-eventos tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  /* --- Efecto hover --- */
+  .tabla-eventos tr:hover {
+    background-color: #ffeaa7;
+    transition: 0.3s;
+  }
+
+  /* --- Responsivo --- */
+  @media (max-width: 768px) {
+    .tabla-eventos {
+      font-size: 13px;
+    }
+    .tabla-eventos th, .tabla-eventos td {
+      padding: 8px;
+    }
+  }
+</style>
+
 </head>
 <body>
     <!-- Banner de bienvenida -->
@@ -14,7 +61,7 @@
 
 
     <main>
-    <!-- Panel principal: aquí se mostrará la lista de pedidos/eventos -->
+    <!-- Tabla principal, donde se veran los pedidos-->
     <section>
     <h2>Próximos pedidos / eventos</h2>
  
@@ -39,6 +86,6 @@
 
 
     <!-- Enlazaremos JS externo -->
-    <script src="Idex.js"></script>
+    <script src="Index.js"></script>
 </body>
 </html>
