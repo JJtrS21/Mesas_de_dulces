@@ -45,6 +45,35 @@ app.post('/api/pedidos', (req, res) => {
   });
 });
 
+// ✅ NUEVA RUTA: actualizar evento existente
+app.put('/api/pedidos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const nuevoEvento = req.body;
+
+  fs.readFile('Eventos.json', 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Error al leer el archivo JSON.' });
+
+    let eventos = [];
+    try {
+      eventos = JSON.parse(data);
+    } catch (e) {
+      return res.status(500).json({ error: 'JSON inválido en el archivo.' });
+    }
+
+    if (id < 0 || id >= eventos.length) {
+      return res.status(404).json({ error: 'Evento no encontrado.' });
+    }
+
+    // Reemplazar el evento con los nuevos datos
+    eventos[id] = nuevoEvento;
+
+    fs.writeFile('Eventos.json', JSON.stringify(eventos, null, 2), (err) => {
+      if (err) return res.status(500).json({ error: 'Error al guardar los cambios.' });
+      res.json({ mensaje: 'Evento actualizado correctamente.', evento: nuevoEvento });
+    });
+  });
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
