@@ -41,12 +41,13 @@
     "descripcion": "Prueba"
   },
   {
-    "nombreCliente": "vbdfndgndbsfb",
+    "nombreCliente": "Carlos",
     "fecha": "2025-10-01",
-    "ubicacion": "sgsfesf",
+    "ubicacion": "Veracruz",
     "productos": [
-      "dbfdb"
+      "Chocolate",
+      "Cerveza"
     ],
-    "descripcion": "Prueba"
+    "descripcion": "Son menores, llevar sin alchol"
   }
 ]
