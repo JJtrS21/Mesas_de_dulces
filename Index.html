@@ -1,44 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesas de dulces - Inicio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesas de dulces - Inicio</title>
+  <style>
+    /* --- Estilos generales de la tabla --- */
+    .tabla-eventos {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    /* --- Encabezado --- */
+    .tabla-eventos thead {
+      background-color: #f3a683;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .tabla-eventos th, .tabla-eventos td {
+      padding: 12px 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    /* --- Filas alternas --- */
+    .tabla-eventos tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* --- Efecto hover --- */
+    .tabla-eventos tr:hover {
+      background-color: #ffeaa7;
+      transition: 0.3s;
+    }
+
+    /* --- Botón de detalles --- */
+    .btn-detalle {
+      background-color: #f3a683;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-detalle:hover {
+      background-color: #e17055;
+      transform: scale(1.05);
+    }
+
+    /* --- Responsivo --- */
+    @media (max-width: 768px) {
+      .tabla-eventos {
+        font-size: 13px;
+      }
+      .tabla-eventos th, .tabla-eventos td {
+        padding: 8px;
+      }
+      .btn-detalle {
+        font-size: 12px;
+        padding: 6px 8px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Banner de bienvenida -->
-    <header>
+  <!-- Banner de bienvenida -->
+  <header>
     <h1>Bienvenido a Dulces & Eventos</h1>
     <p>Panel de control — administra tus pedidos/eventos fácilmente</p>
-    </header>
+  </header>
 
-
-    <main>
-    <!-- Panel principal: aquí se mostrará la lista de pedidos/eventos -->
+  <main>
+    <!-- Tabla principal, donde se verán los pedidos -->
     <section>
-    <h2>Próximos pedidos / eventos</h2>
- 
+      <h2>Próximos pedidos / eventos</h2>
 
-    <!-- Lugar donde se mostrará la lista de eventos -->
-    <div id="lista-eventos">
-    <p>La lista de pedidos se generará aquí.</p>
-    </div>
+      <!-- Lugar donde se mostrará la lista de eventos -->
+      <div id="lista-eventos">
+        <p>La lista de pedidos se generará aquí.</p>
+      </div>
 
-
-    <!-- Botón que lleva a la página para agregar un nuevo pedido -->
-    <div>
-    <a href="pedido-nuevo.html" id="btn-new">Agregar nuevo pedido</a>
-    </div>
+      <!-- Botón que lleva a la página para agregar un nuevo pedido -->
+      <div>
+        <a href="pedido-nuevo.html" id="btn-new">Agregar nuevo pedido</a>
+      </div>
     </section>
-    </main>
+  </main>
 
-
-    <footer>
+  <footer>
     <small>Proyecto educativo — versión prototipo</small>
-    </footer>
+  </footer>
 
-
-    <!-- Enlazaremos JS externo -->
-    <script src="Idex.js"></script>
+  <!-- Enlazamos JS externo -->
+  <script src="Index.js"></script>
 </body>
 </html>

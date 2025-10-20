@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar evento</title>
+</head>
+<body>
+  <h2>Modificar evento</h2>
+
+  <form id="formModificar" style="display:none;">
+    <label>Nombre del cliente: <input type="text" id="nombreCliente" required></label><br><br>
+    <label>Fecha: <input type="date" id="fecha" required></label><br><br>
+    <label>Ubicación: <input type="text" id="ubicacion" required></label><br><br>
+    <label>Productos (separados por comas): <input type="text" id="productos" required></label><br><br>
+    <label>Descripción: <input type="text" id="descripcion"></label><br><br>
+    <button type="submit">Guardar cambios</button>
+
+    <br>
+    <p><a href="index.html" id="btn-new">Volver al inicio</a></p>
+  </form>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const idEvento = parseInt(params.get('id')) || 0;
+    let datosJson = [];
+
+    // Cargar datos existentes
+    fetch('Eventos.json')
+      .then(res => res.json())
+      .then(data => {
+        datosJson = data;
+        const evento = datosJson[idEvento];
+
+        // Rellenar el formulario
+        document.getElementById('nombreCliente').value = evento.nombreCliente;
+        document.getElementById('fecha').value = evento.fecha;
+        document.getElementById('ubicacion').value = evento.ubicacion;
+        document.getElementById('productos').value = evento.productos.join(', ');
+        document.getElementById('descripcion').value = evento.descripcion;
+
+        document.getElementById("formModificar").style.display = "block";
+      })
+      .catch(err => console.error('Error al cargar el JSON:', err));
+
+    // Guardar cambios
+    document.getElementById("formModificar").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const eventoActualizado = {
+        nombreCliente: document.getElementById('nombreCliente').value,
+        fecha: document.getElementById('fecha').value,
+        ubicacion: document.getElementById('ubicacion').value,
+        productos: document.getElementById('productos').value.split(',').map(p => p.trim()),
+        descripcion: document.getElementById('descripcion').value
+      };
+
+      // Enviar al servidor para reemplazar
+      fetch(`http://localhost:3000/api/pedidos/${idEvento}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventoActualizado)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Servidor respondió:', data);
+        alert("Evento actualizado correctamente.");
+        window.location.href = `detalle.html?id=${idEvento}`;
+      })
+      .catch(err => console.error('Error al enviar datos:', err));
+    });
+  </script>
+</body>
+</html>

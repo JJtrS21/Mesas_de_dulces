@@ -1,6 +1,6 @@
 [
   {
-    "nombre del cliente": "Carlos Perez",
+    "nombreCliente": "Carlos Perez",
     "fecha": "2024-10-01",
     "ubicacion": "Calle Falsa 123",
     "productos": [
@@ -20,7 +20,7 @@
     "descripcion": "Mesa de dulces"
   },
   {
-    "nombreCliente": "Nora ",
+    "nombreCliente": "Nora",
     "fecha": "2025-10-02",
     "ubicacion": "Localidad Fei",
     "productos": [
@@ -28,5 +28,26 @@
       "3 kg de gomitas"
     ],
     "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "fecha": "2025-11-01",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Dulces",
+      "Gomitas",
+      "Pasteles"
+    ],
+    "descripcion": "Prueba"
+  },
+  {
+    "nombreCliente": "Carlos",
+    "fecha": "2025-10-01",
+    "ubicacion": "Veracruz",
+    "productos": [
+      "Chocolate",
+      "Cerveza"
+    ],
+    "descripcion": "Son menores, llevar sin alchol"
   }
 ]
