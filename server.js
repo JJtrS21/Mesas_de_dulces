@@ -74,6 +74,45 @@ app.put('/api/pedidos/:id', (req, res) => {
   });
 });
 
+// ✅ Obtener lista de productos
+app.get('/api/productos', (req, res) => {
+  fs.readFile('Productos.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer Productos.json:', err);
+      return res.status(500).json({ error: 'Error al leer el archivo' });
+    }
+    const productos = JSON.parse(data);
+    res.json(productos);
+  });
+});
+
+// ✅Nueva Ruta: Agregar un nuevo producto
+app.post('/api/productos', (req, res) => {
+  const nuevoProducto = req.body;
+
+  // Leer el archivo actual
+  fs.readFile('Productos.json', 'utf8', (err, data) => {
+    let productos = [];
+    if (!err && data) {
+      productos = JSON.parse(data);
+    }
+
+    // Agregar el nuevo producto al arreglo
+    productos.push(nuevoProducto);
+
+    // Guardar los cambios en el archivo
+    fs.writeFile('Productos.json', JSON.stringify(productos, null, 2), (err) => {
+      if (err) {
+        console.error('Error al guardar producto:', err);
+        return res.status(500).json({ error: 'Error al guardar el producto' });
+      }
+
+      console.log('✅ Producto agregado correctamente:', nuevoProducto);
+      res.json({ mensaje: 'Producto agregado correctamente', producto: nuevoProducto });
+    });
+  });
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
