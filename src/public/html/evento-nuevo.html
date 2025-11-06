@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agregar nuevo evento</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Encabezado global -->
+  <header class="site-header">
+    <h1>Agregar nuevo evento</h1>
+  </header>
+
+  <main>
+    <form id="formAgregar">
+      <label>Nombre del cliente</label>
+      <input type="text" id="nombreCliente" required>
+
+      <label>Fecha</label>
+      <input type="date" id="fecha" required>
+
+      <label>Ubicación</label>
+      <input type="text" id="ubicacion" required>
+
+      <!-- Productos cargados automáticamente -->
+      <label>Selecciona los productos</label>
+      <ul id="listaProductos">
+        <p>Cargando productos...</p>
+      </ul>
+
+      <label>Descripción</label>
+      <textarea id="descripcion"></textarea>
+
+      <div class="botones">
+        <button type="submit" class="btn-primary">Guardar evento</button>
+        <a href="/" class="btn-link">Volver al inicio</a>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <script src="/js/evento-nuevo.js"></script>
+</body>
+</html>

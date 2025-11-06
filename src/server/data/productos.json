@@ -1,0 +1,37 @@
+[
+  {
+    "nombreProducto": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+    "precio": 19.99,
+    "categoria": "Bocadillos Salados"
+  },
+  {
+    "nombreProducto": "Canapes de surimi",
+    "precio": 19.99,
+    "categoria": "Bocadillos Salados"
+  },
+  {
+    "nombreProducto": "Lengua a la mexicana",
+    "precio": 19.99,
+    "categoria": "Plato fuerte"
+  },
+  {
+    "nombreProducto": "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
+    "precio": 19.99,
+    "categoria": "Plato fuerte"
+  },
+  {
+    "nombreProducto": "Mousse de chocolate",
+    "precio": 19.99,
+    "categoria": "Postres"
+  },
+  {
+    "nombreProducto": "Tiramisú en vasito individual",
+    "precio": 19.99,
+    "categoria": "Postres"
+  },
+  {
+    "nombreProducto": "Cupcakes",
+    "precio": "20",
+    "categoria": "Postres"
+  }
+]

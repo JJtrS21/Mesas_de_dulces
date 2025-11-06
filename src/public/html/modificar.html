@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modificar evento</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- 🔹 Encabezado -->
+  <header class="site-header">
+    <img src="/img/logo.png" alt="Logo" class="logo">
+    <h1>Servicios de Catering</h1>
+    <p>Modificar evento existente</p>
+  </header>
+
+  <!-- 🔹 Contenido principal -->
+  <main class="detalle-container">
+    <section class="card">
+      <h2>Modificar evento</h2>
+
+      <form id="formModificar" style="display:none;">
+        <label for="nombreCliente">Nombre del cliente:</label>
+        <input type="text" id="nombreCliente" required>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" required>
+
+        <label for="ubicacion">Ubicación:</label>
+        <input type="text" id="ubicacion" required>
+
+        <label for="productos">Productos (separados por comas):</label>
+        <input type="text" id="productos" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" placeholder="Detalles adicionales..."></textarea>
+
+        <div class="botones">
+          <button type="submit" class="btn-primary">Guardar cambios</button>
+          <a href="/" class="btn-link">Volver al inicio</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- 🔹 Footer -->
+  <footer>
+    <p class="contacto">© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <!-- 🔹 Script -->
+  <script src="/js/modificar.js"></script>
+</body>
+</html>

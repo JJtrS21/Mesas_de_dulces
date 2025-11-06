@@ -1,0 +1,242 @@
+/* --- Paleta de colores --- */
+:root {
+  --azul: #0A6FA6;
+  --coral: #F3A683;
+  --texto: #333;
+  --fondo: #FAFAFA;
+}
+
+/* --- Reset básico --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  padding-bottom: 80px;
+}
+
+/* --- Header - Encabezado principal --- */
+.site-header {
+  background: var(--azul);
+  color: white;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.logo {
+  width: 55px;
+  margin-bottom: 6px;
+}
+
+.site-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.site-header p {
+  margin-top: 4px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* --- Contenedor principal --- */
+main {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 0 18px;
+}
+
+/* --- Títulos de secciones --- */
+h2 {
+  color: var(--azul);
+  margin-bottom: 15px;
+  border-left: 6px solid var(--coral);
+  padding-left: 12px;
+  font-size: 1.4rem;
+}
+
+/* ====================================================
+   ⭐ Tu tabla original — ahora alineada al nuevo diseño
+   ==================================================== */
+
+.tabla-eventos {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tabla-eventos thead {
+  background-color: var(--coral);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.tabla-eventos th, 
+.tabla-eventos td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.tabla-eventos tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabla-eventos tr:hover {
+  background-color: #ffeaa7;
+  transition: 0.3s;
+}
+
+/* Botón detalle */
+.btn-detalle {
+  background-color: var(--coral);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-detalle:hover {
+  background-color: #e17055;
+  transform: scale(1.05);
+}
+
+/* --- Contenedor de la tabla --- */
+.tabla-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 200px;
+}
+
+/* --- Botón nuevo pedido --- */
+.btn-add {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: var(--azul);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.25s ease;
+}
+
+.btn-add:hover {
+  background-color: var(--coral);
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--azul);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer .contacto {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .tabla-eventos th, .tabla-eventos td {
+    padding: 8px;
+    font-size: 13px;
+  }
+  .btn-detalle {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+}
+
+/* Contenedor principal más centrado y aireado */
+.detalle-container {
+  max-width: 750px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Tarjetas limpias */
+.card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn-primary {
+  background: #005f73;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #0a9396;
+}
+
+.btn-link {
+  text-decoration: none;
+  color: #005f73;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Listado de productos */
+#listaProductos {
+  list-style: square inside;
+  margin-left: 15px;
+}
+
+#listaProductos li {
+  margin-bottom: 6px;
+}
+
+form label {
+  display: block;
+  margin: 12px 0 4px;
+  font-weight: 600;
+}
+
+form input, 
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+textarea {
+  resize: vertical;
+  height: 90px;
+}
+

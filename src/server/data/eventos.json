@@ -1,0 +1,83 @@
+[
+  {
+    "nombreCliente": "Carlos Perez",
+    "fecha": "2024-10-01",
+    "ubicacion": "Calle Falsa 123",
+    "productos": [
+      "Producto A",
+      "Producto B"
+    ],
+    "descripcion": "Entrega urgente"
+  },
+  {
+    "nombreCliente": "Maria Teresa",
+    "fecha": "2025-09-24",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Nora",
+    "fecha": "2025-10-02",
+    "ubicacion": "Localidad Fei",
+    "productos": [
+      "10 kg de gomitas",
+      "3 kg de gomitas"
+    ],
+    "descripcion": "Mesa de dulces"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "fecha": "2025-11-01",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Dulces",
+      "Gomitas",
+      "Pasteles"
+    ],
+    "descripcion": "Prueba"
+  },
+  {
+    "nombreCliente": "Carlos",
+    "fecha": "2025-10-01",
+    "ubicacion": "Veracruz",
+    "productos": [
+      "Chocolate",
+      "Cerveza"
+    ],
+    "descripcion": "Son menores, llevar sin alchol"
+  },
+  {
+    "nombreCliente": "dfsdffsd",
+    "fecha": "2025-11-06",
+    "ubicacion": "sdfsdf",
+    "productos": [
+      "Sandwiches de jamon con queso canasta y pepinillos partidos en 4"
+    ],
+    "descripcion": "lllllllll"
+  },
+  {
+    "nombreCliente": "Tere",
+    "fecha": "2025-11-19",
+    "ubicacion": "FEI",
+    "productos": [
+      "Canapes de surimi",
+      "Lengua a la mexicana",
+      "Mousse de chocolate",
+      "Tiramisú en vasito individual"
+    ],
+    "descripcion": "Comida para 21 personas."
+  },
+  {
+    "nombreCliente": "Jorge",
+    "fecha": "2025-11-13",
+    "ubicacion": "zxczxc",
+    "productos": [
+      "Sandwiches de jamon con queso canasta y pepinillos partidos en 4"
+    ],
+    "descripcion": "zxczxczx"
+  }
+]

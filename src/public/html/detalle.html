@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalles del Evento</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Encabezado moderno -->
+<header class="site-header">
+  <h1>Detalles del evento</h1>
+</header>
+
+  <!-- Contenido principal -->
+  <main class="detalle-container">
+    <h2 id="nombreCliente">Cargando...</h2>
+
+    <section id="infoBasica" class="card">
+      <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+      <p><strong>Ubicación:</strong> <span id="ubicacion"></span></p>
+    </section>
+
+    <section id="productos" class="card">
+      <h3>Productos</h3>
+      <ul id="listaProductos"></ul>
+    </section>
+
+    <section id="descripcion" class="card">
+      <h3>Descripción</h3>
+      <p id="textoDescripcion"></p>
+    </section>
+
+    <div class="botones">
+      <button id="editar" class="btn-primary">Modificar este evento</button>
+      <a href="/" class="btn-link">Volver al inicio</a>
+    </div>
+
+  </main>
+
+  <!-- Footer con contacto -->
+  <footer>
+    <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <script src="/js/detalle.js"></script>
+</body>
+</html>

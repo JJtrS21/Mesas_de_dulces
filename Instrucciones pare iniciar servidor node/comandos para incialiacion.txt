@@ -1,0 +1,15 @@
+Descarga desde el sitio oficial:
+👉 https://nodejs.org/
+
+los comandos para iniciar node js y ejecutar el servidor son:
+npm init -y
+npm install express body-parser cors
+node src/server/server.js
+
+Se debe usar el comando "node server.js" para iniciar el servidor que contiene
+el sistema que permite guardar y editar los datos guardados, como eventos, productos, etc.
+
+Para que el servifor se inicie solo (opcional):
+EL archivo se le tiene que crear un acceso directo y de ahi ese acceso directo poner en la carpeta 
+C:\Users\<tu_usuario>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 
+que se puede abrir de otra manera presionando win + r y poniendo shell:startup
