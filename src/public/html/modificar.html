@@ -2,14 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modificar evento</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/styles.css"> <!-- Corregí "style.css" a "styles.css" -->
 </head>
 <body>
 
   <!-- 🔹 Encabezado -->
   <header class="site-header">
-    <img src="/img/logo.png" alt="Logo" class="logo">
+    <img src="/img/logo-chef.png" alt="Logo" class="logo"> <!-- Corregí la ruta de la imagen -->
     <h1>Servicios de Catering</h1>
     <p>Modificar evento existente</p>
   </header>
@@ -29,9 +30,11 @@
         <label for="ubicacion">Ubicación:</label>
         <input type="text" id="ubicacion" required>
 
-        <label for="productos">Productos (separados por comas):</label>
-        <input type="text" id="productos" required>
-
+        <label>Selecciona los productos</label>
+        <div id="listaProductos"> <!-- Cambié <ul> por <div> -->
+          <p>Cargando productos...</p>
+        </div>
+        
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" placeholder="Detalles adicionales..."></textarea>
 
