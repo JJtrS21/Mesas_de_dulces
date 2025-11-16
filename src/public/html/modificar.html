@@ -30,10 +30,19 @@
         <label for="ubicacion">Ubicación:</label>
         <input type="text" id="ubicacion" required>
 
-        <label>Selecciona los productos</label>
+        <label>Productos</label>
         <div id="listaProductos"> <!-- Cambié <ul> por <div> -->
           <p>Cargando productos...</p>
         </div>
+        
+        <label for="personas">Número de personas:</label>
+        <input type="number" id="personas" min="30" required>
+
+        <label for="precioPersona">Precio por persona:</label>
+        <input type="number" id="precioPersona" readonly>
+
+        <!-- <label for="estatus">Estatus:</label>
+        <input type="text" id="estatus" required> -->
         
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" placeholder="Detalles adicionales..."></textarea>
