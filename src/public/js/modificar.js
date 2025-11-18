@@ -8,7 +8,9 @@ if (isNaN(idEvento)) {
 
 let datosJson = [];
 
-// Cargar datos: eventos + productos
+// ==============================
+//  CARGAR EVENTO + PRODUCTOS
+// ==============================
 Promise.all([
   fetch('/api/eventos').then(res => res.json()),
   fetch('/api/productos').then(res => res.json())
@@ -24,15 +26,18 @@ Promise.all([
     return;
   }
 
-  // Rellenar campos básicos
+  // ===============================
+  //     RELLENAR CAMPOS BÁSICOS
+  // ===============================
   document.getElementById('nombreCliente').value = evento.nombreCliente;
   document.getElementById('fecha').value = evento.fecha;
   document.getElementById('ubicacion').value = evento.ubicacion;
+  document.getElementById('estado').value = evento.estado;   // ✔ INCLUIDO
   document.getElementById('personas').value = evento.personas;
   document.getElementById('precioPersona').value = evento.precioPersona;
   document.getElementById('descripcion').value = evento.descripcion || '';
 
-  // Convertir productos guardados a mapa: { nombre: cantidad }
+  // Convertir productos guardados a mapa: { nombre → cantidad }
   const mapaCantidades = {};
   if (Array.isArray(evento.productos)) {
     evento.productos.forEach(p => {
@@ -40,10 +45,12 @@ Promise.all([
     });
   }
 
-  // ---- GENERAR LISTA CON CANTIDADES ----
   const cont = document.getElementById("listaProductos");
   cont.innerHTML = "";
 
+  // ===============================
+  //   GENERAR LISTA DE PRODUCTOS
+  // ===============================
   productos.forEach(prod => {
     const cantidad = mapaCantidades[prod.nombreProducto] || 0;
 
@@ -54,7 +61,7 @@ Promise.all([
       <label>
         <input type="checkbox" class="checkProd" data-nombre="${prod.nombreProducto}"
                ${cantidad > 0 ? "checked" : ""}>
-        ${prod.nombreProducto} — $${prod.precio}
+        ${prod.nombreProducto} — $${prod.precio} (${prod.categoria})
       </label>
 
       <input type="number" min="1" class="cantProd" 
@@ -66,34 +73,37 @@ Promise.all([
     cont.appendChild(fila);
   });
 
-  // Calcular precio por persona según el rango de personas
-    function calcularPrecioPorPersona(personas) {
+  // ===============================
+  //   CÁLCULO PRECIO POR PERSONA
+  // ===============================
+  function calcularPrecioPorPersona(personas) {
     if (personas >= 30 && personas <= 60) return 80;
     if (personas >= 61 && personas <= 100) return 60;
     if (personas >= 101 && personas <= 150) return 45;
     if (personas > 150) return 35;
-    return ""; // Si es menos de 30, no aplica
+    return "";
   }
 
-  // Evento: cuando se escribe en el input de personas
   document.getElementById("personas").addEventListener("input", () => {
-  const personas = parseInt(document.getElementById("personas").value);
+    const personas = parseInt(document.getElementById("personas").value);
 
-  if (!isNaN(personas)) {
-    const precio = calcularPrecioPorPersona(personas);
-    document.getElementById("precioPersona").value = precio;
-  } else {
-    document.getElementById("precioPersona").value = "";
-  }
+    if (!isNaN(personas)) {
+      const precio = calcularPrecioPorPersona(personas);
+      document.getElementById("precioPersona").value = precio;
+    } else {
+      document.getElementById("precioPersona").value = "";
+    }
   });
 
-
-
-  // Habilitar / deshabilitar campo cantidad al hacer check
+  // ===============================
+  //  CHECKBOX HABILITA CANTIDAD
+  // ===============================
   document.querySelectorAll(".checkProd").forEach(ch => {
     ch.addEventListener("change", e => {
       const nombre = e.target.dataset.nombre;
-      const inputCantidad = document.querySelector(`.cantProd[data-nombre="${nombre}"]`);
+      const inputCantidad = document.querySelector(
+        `.cantProd[data-nombre="${nombre}"]`
+      );
 
       if (e.target.checked) {
         inputCantidad.disabled = false;
@@ -114,17 +124,21 @@ Promise.all([
 });
 
 
-// -------- GUARDAR CAMBIOS --------
+// ===============================
+//        GUARDAR CAMBIOS
+// ===============================
 document.getElementById("formModificar").addEventListener("submit", e => {
   e.preventDefault();
 
-  // Construir lista de productos con cantidad
   const productosActualizados = [];
 
   document.querySelectorAll(".checkProd").forEach(ch => {
     if (ch.checked) {
       const nombre = ch.dataset.nombre;
-      const inp = document.querySelector(`.cantProd[data-nombre="${nombre}"]`);
+      const inp = document.querySelector(
+        `.cantProd[data-nombre="${nombre}"]`
+      );
+
       const cantidad = parseInt(inp.value);
 
       if (cantidad > 0) {
@@ -136,11 +150,11 @@ document.getElementById("formModificar").addEventListener("submit", e => {
     }
   });
 
-  // Armar evento actualizado
   const eventoActualizado = {
     nombreCliente: document.getElementById('nombreCliente').value,
     fecha: document.getElementById('fecha').value,
     ubicacion: document.getElementById('ubicacion').value,
+    estado: document.getElementById('estado').value,  // ✔ AGREGADO
     personas: parseInt(document.getElementById('personas').value),
     precioPersona: parseInt(document.getElementById('precioPersona').value),
     productos: productosActualizados,
@@ -162,3 +176,4 @@ document.getElementById("formModificar").addEventListener("submit", e => {
     alert("❌ Error al guardar los cambios.");
   });
 });
+

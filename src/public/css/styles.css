@@ -1,9 +1,14 @@
+/* =====================
+   🌎 Estilos globales
+   ===================== */
 /* --- Paleta de colores --- */
 :root {
   --azul: #0A6FA6;
   --coral: #F3A683;
   --texto: #333;
   --fondo: #FAFAFA;
+  --gris-claro: #f4f4f4;
+  --gris-borde: #cccccc;
 }
 
 /* --- Reset básico --- */
@@ -14,33 +19,35 @@
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* --- Body --- */
 body {
   background: var(--fondo);
   color: var(--texto);
   padding-bottom: 80px;
 }
 
-/* --- Header - Encabezado principal --- */
+/* --- Header --- */
 .site-header {
   background: var(--azul);
   color: white;
-  padding: 12px 10px;
+  padding: 15px 10px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .logo {
-  width: 55px;
+  width: 60px;
   margin-bottom: 6px;
 }
 
 .site-header h1 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
 }
 
 .site-header p {
   margin-top: 4px;
-  font-size: 1rem;
+  font-size: 1.05rem;
   opacity: 0.9;
 }
 
@@ -54,21 +61,148 @@ main {
 /* --- Títulos de secciones --- */
 h2 {
   color: var(--azul);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-left: 6px solid var(--coral);
   padding-left: 12px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-/* ====================================================
-   ⭐ Tu tabla original — ahora alineada al nuevo diseño
-   ==================================================== */
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 12px;
+  background-color: var(--azul);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+
+/* ============================================
+   🎨 Estilo elegante para formularios
+   ============================================ */
+
+form {
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  max-width: 650px;
+  margin: auto;
+}
+
+/* Inputs uniformes */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+  background: #fafafa;
+  font-size: 1rem;
+  margin-bottom: 14px;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 6px rgba(10, 111, 166, 0.35);
+}
+
+/* Etiquetas */
+form label {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #444;
+}
+
+/* Checkbox */
+form input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* Lista de productos tipo “cards” */
+#listaProductos label {
+  display: flex;
+  align-items: center;
+  background: var(--gris-claro);
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+#listaProductos label:hover {
+  background: #e7e7e7;
+}
+
+.textoProducto {
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+  height: 90px;
+}
+
+/* Botones */
+.botones {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-primary {
+  background: var(--azul);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #084d78;
+}
+
+.btn-link {
+  color: var(--azul);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.btn-link:hover {
+  background: rgba(10, 111, 166, 0.15);
+}
+
+/* ==================================
+   📊 Estilos para la tabla de eventos
+   ================================== */
 
 .tabla-eventos {
   width: 100%;
   margin: 20px auto;
   border-collapse: collapse;
   background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
@@ -78,11 +212,11 @@ h2 {
   text-transform: uppercase;
 }
 
-.tabla-eventos th, 
+.tabla-eventos th,
 .tabla-eventos td {
-  padding: 12px 15px;
+  padding: 14px 16px;
   text-align: center;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   font-size: 15px;
 }
 
@@ -101,7 +235,7 @@ h2 {
   border: none;
   color: white;
   padding: 8px 12px;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
@@ -112,131 +246,181 @@ h2 {
   transform: scale(1.05);
 }
 
-/* --- Contenedor de la tabla --- */
+/* Contenedor tabla */
 .tabla-container {
   background: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   min-height: 200px;
 }
 
-/* --- Botón nuevo pedido --- */
+/* Botón nuevo pedido */
 .btn-add {
   display: inline-block;
   margin-top: 20px;
   background-color: var(--azul);
   color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
+  padding: 12px 20px;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
   transition: background 0.25s ease;
 }
 
 .btn-add:hover {
-  background-color: var(--coral);
+  background-color: #084d78;
 }
 
-/* --- Footer --- */
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: var(--azul);
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+/* ==================================
+   📦 Detalles de eventos
+   ================================== */
 
-footer .contacto {
-  font-size: 0.95rem;
-  margin-bottom: 6px;
-}
-
-/* --- Responsivo --- */
-@media (max-width: 768px) {
-  .tabla-eventos th, .tabla-eventos td {
-    padding: 8px;
-    font-size: 13px;
-  }
-  .btn-detalle {
-    font-size: 12px;
-    padding: 6px 8px;
-  }
-}
-
-/* Contenedor principal más centrado y aireado */
 .detalle-container {
   max-width: 750px;
   margin: auto;
   padding: 20px;
 }
 
-/* Tarjetas limpias */
 .card {
   background: #ffffff;
   border: 1px solid #e8e8e8;
-  border-radius: 8px;
-  padding: 18px 20px;
+  border-radius: 10px;
+  padding: 20px;
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* Botones */
-.botones {
+/* ==================================
+   🔍 Filtros del Historial
+   ================================== */
+
+.filtros-container {
+  background: #ffffff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-end;
+  margin-bottom: 25px;
+  border-left: 6px solid var(--azul);
 }
 
-.btn-primary {
-  background: #005f73;
+/* Grupo de filtro */
+.filtro {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+/* Label */
+.filtro label {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--azul);
+}
+
+/* Inputs */
+.filtros-container input,
+.filtros-container select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+  background: var(--gris-claro);
+  font-size: 0.95rem;
+  transition: 0.25s;
+}
+
+.filtros-container input:focus,
+.filtros-container select:focus {
+  background: #fff;
+  border-color: var(--azul);
+  box-shadow: 0 0 4px rgba(10, 111, 166, 0.4);
+}
+
+/* Botón aplicar */
+.btn-filtrar {
+  background-color: var(--azul);
   color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
+  padding: 12px 20px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 0.95rem;
   transition: 0.3s;
 }
 
-.btn-primary:hover {
-  background: #0a9396;
+.btn-filtrar:hover {
+  background-color: #084d78;
+  transform: scale(1.03);
 }
 
-.btn-link {
-  text-decoration: none;
-  color: #005f73;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Listado de productos */
-#listaProductos {
-  list-style: square inside;
-  margin-left: 15px;
-}
-
-#listaProductos li {
-  margin-bottom: 6px;
-}
-
-form label {
-  display: block;
-  margin: 12px 0 4px;
-  font-weight: 600;
-}
-
-form input, 
-form textarea {
+/* Botones de ordenamiento (alfabético / fecha) */
+.orden-container {
   width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
 }
 
-textarea {
-  resize: vertical;
-  height: 90px;
+.orden-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 50px;
+  background-color: var(--coral);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
 }
 
+.orden-btn:hover {
+  background-color: #e17055;
+  transform: scale(1.05);
+}
+
+/* Estado activo */
+.orden-btn.activo {
+  background-color: var(--azul);
+}
+
+/* =============================
+   📱 Responsividad
+   ============================= */
+@media (max-width: 768px) {
+
+  form {
+    padding: 20px;
+  }
+
+  .tabla-eventos th,
+  .tabla-eventos td {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .btn-detalle {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .filtros-container {
+    flex-direction: column;
+  }
+
+  .filtro {
+    width: 100%;
+  }
+
+  .orden-container {
+    flex-direction: column;
+  }
+}

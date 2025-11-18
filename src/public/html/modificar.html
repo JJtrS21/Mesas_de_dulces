@@ -4,23 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Modificar evento</title>
-  <link rel="stylesheet" href="/css/styles.css"> <!-- Corregí "style.css" a "styles.css" -->
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
-  <!-- 🔹 Encabezado -->
+  <!-- Encabezado con branding unificado -->
   <header class="site-header">
-    <img src="/img/logo-chef.png" alt="Logo" class="logo"> <!-- Corregí la ruta de la imagen -->
-    <h1>Servicios de Catering</h1>
-    <p>Modificar evento existente</p>
+    <div class="branding">
+      <a href="/" class="logo-link">
+        <img src="/img/logo-chef.png" alt="Logo Chef" class="logo">
+      </a>
+      <h1>Nohelly Armas Morgado</h1>
+      <p>Servicios de Catering</p>
+    </div>
   </header>
 
-  <!-- 🔹 Contenido principal -->
   <main class="detalle-container">
     <section class="card">
       <h2>Modificar evento</h2>
 
       <form id="formModificar" style="display:none;">
+
         <label for="nombreCliente">Nombre del cliente:</label>
         <input type="text" id="nombreCliente" required>
 
@@ -30,20 +34,27 @@
         <label for="ubicacion">Ubicación:</label>
         <input type="text" id="ubicacion" required>
 
-        <label>Productos</label>
-        <div id="listaProductos"> <!-- Cambié <ul> por <div> -->
+        <!-- Estado del evento (de main) -->
+        <label>Estado del evento</label>
+        <select id="estado" required>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Completado">Completado</option>
+          <option value="Cancelado">Cancelado</option>
+        </select>
+
+        <!-- Productos (div, como en Serggi-Nueva-v) -->
+        <label>Selecciona los productos</label>
+        <div id="listaProductos">
           <p>Cargando productos...</p>
         </div>
-        
+
+        <!-- Campos adicionales de Serggi-Nueva-v -->
         <label for="personas">Número de personas:</label>
         <input type="number" id="personas" min="30" required>
 
         <label for="precioPersona">Precio por persona:</label>
         <input type="number" id="precioPersona" readonly>
 
-        <!-- <label for="estatus">Estatus:</label>
-        <input type="text" id="estatus" required> -->
-        
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" placeholder="Detalles adicionales..."></textarea>
 
@@ -51,16 +62,15 @@
           <button type="submit" class="btn-primary">Guardar cambios</button>
           <a href="/" class="btn-link">Volver al inicio</a>
         </div>
+
       </form>
     </section>
   </main>
 
-  <!-- 🔹 Footer -->
   <footer>
     <p class="contacto">© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
   </footer>
 
-  <!-- 🔹 Script -->
   <script src="/js/modificar.js"></script>
 </body>
 </html>
