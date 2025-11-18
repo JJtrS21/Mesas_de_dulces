@@ -7,6 +7,7 @@
 </head>
 <body>
 
+  <!-- Encabezado unificado -->
   <header class="site-header">
     <div class="branding">
       <a href="/" class="logo-link">
@@ -15,11 +16,15 @@
       <h1>Nohelly Armas Morgado</h1>
       <p>Servicios de Catering</p>
     </div>
+
+    <h2 class="titulo-pagina">Detalles del evento</h2>
   </header>
 
+  <!-- Contenido principal -->
   <main class="detalle-container">
     <h2 id="nombreCliente">Cargando...</h2>
 
+    <!-- Información básica + estado -->
     <section id="infoBasica" class="card">
       <p><strong>Fecha:</strong> <span id="fecha"></span></p>
       <p><strong>Ubicación:</strong> <span id="ubicacion"></span></p>
@@ -27,16 +32,32 @@
       <div id="accionesEstado" class="acciones-estado"></div>
     </section>
 
+    <!-- Productos -->
     <section id="productos" class="card">
       <h3>Productos</h3>
       <ul id="listaProductos"></ul>
     </section>
 
+    <!-- Número de personas -->
+    <section id="personas" class="card">
+      <h3>Número de personas</h3>
+      <ul id="NumeroPersonasEvento"></ul>
+    </section>
+
+    <!-- Precio -->
+    <section id="precio" class="card">
+      <h3>Precio</h3>
+      <ul id="PrecioEvento"></ul>
+      <ul id="EstatusEvento"></ul>
+    </section>
+
+    <!-- Descripción -->
     <section id="descripcion" class="card">
       <h3>Descripción</h3>
       <p id="textoDescripcion"></p>
     </section>
 
+    <!-- Botones -->
     <div class="botones">
       <a href="/" class="btn-link">Volver al inicio</a>
       <a href="/html/eventos-historial.html" class="btn-link">Ver historial completo</a>
