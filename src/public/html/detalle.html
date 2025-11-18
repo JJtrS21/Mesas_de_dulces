@@ -7,18 +7,24 @@
 </head>
 <body>
 
-  <!-- Encabezado moderno -->
-<header class="site-header">
-  <h1>Detalles del evento</h1>
-</header>
+  <header class="site-header">
+    <div class="branding">
+      <a href="/" class="logo-link">
+        <img src="/img/logo-chef.png" alt="Logo Chef" class="logo">
+      </a>
+      <h1>Nohelly Armas Morgado</h1>
+      <p>Servicios de Catering</p>
+    </div>
+  </header>
 
-  <!-- Contenido principal -->
   <main class="detalle-container">
     <h2 id="nombreCliente">Cargando...</h2>
 
     <section id="infoBasica" class="card">
       <p><strong>Fecha:</strong> <span id="fecha"></span></p>
       <p><strong>Ubicación:</strong> <span id="ubicacion"></span></p>
+      <p><strong>Estado:</strong> <span id="estado"></span></p>
+      <div id="accionesEstado" class="acciones-estado"></div>
     </section>
 
     <section id="productos" class="card">
@@ -32,13 +38,13 @@
     </section>
 
     <div class="botones">
-      <button id="editar" class="btn-primary">Modificar este evento</button>
       <a href="/" class="btn-link">Volver al inicio</a>
+      <a href="/html/eventos-historial.html" class="btn-link">Ver historial completo</a>
+      <button id="editar" class="btn-primary">Modificar este evento</button>
     </div>
 
   </main>
 
-  <!-- Footer con contacto -->
   <footer>
     <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
   </footer>

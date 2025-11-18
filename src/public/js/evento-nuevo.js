@@ -36,6 +36,7 @@ document.getElementById("formAgregar").addEventListener("submit", function(event
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       nombreCliente: document.getElementById('nombreCliente').value,
+      estado: document.getElementById('estado').value,
       fecha: document.getElementById('fecha').value,
       ubicacion: document.getElementById('ubicacion').value,
       productos: productosSeleccionados,
