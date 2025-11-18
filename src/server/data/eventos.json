@@ -1,66 +1,20 @@
 [
   {
-    "nombreCliente": "Carlos Perez",
-    "fecha": "2024-10-01",
-    "ubicacion": "Calle Falsa 123",
-    "productos": [
-      "Producto A",
-      "Producto B"
-    ],
-    "descripcion": "Entrega urgente"
-  },
-  {
-    "nombreCliente": "Maria Teresa",
-    "fecha": "2025-09-24",
-    "ubicacion": "Localidad Fei",
-    "productos": [
-      "10 kg de gomitas",
-      "3 kg de gomitas"
-    ],
-    "descripcion": "Mesa de dulces"
-  },
-  {
-    "nombreCliente": "Nora",
-    "fecha": "2025-10-02",
-    "ubicacion": "Localidad Fei",
-    "productos": [
-      "10 kg de gomitas",
-      "3 kg de gomitas"
-    ],
-    "descripcion": "Mesa de dulces"
-  },
-  {
-    "nombreCliente": "Jorge",
-    "fecha": "2025-11-01",
-    "ubicacion": "Xalapa",
-    "productos": [
-      "Dulces",
-      "Gomitas",
-      "Pasteles"
-    ],
-    "descripcion": "Prueba"
-  },
-  {
-    "nombreCliente": "Carlos",
-    "fecha": "2025-10-01",
-    "ubicacion": "Veracruz",
-    "productos": [
-      "Chocolate",
-      "Cerveza"
-    ],
-    "descripcion": "Son menores, llevar sin alchol"
-  },
-  {
-    "nombreCliente": "dfsdffsd",
+    "nombreCliente": "Este no debe mostrarse",
     "fecha": "2025-11-06",
     "ubicacion": "sdfsdf",
+    "estado": "Completado",
     "productos": [
-      "Sandwiches de jamon con queso canasta y pepinillos partidos en 4"
+      "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+      "Canapes de surimi",
+      "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
+      "Tiramisú en vasito individual"
     ],
     "descripcion": "lllllllll"
   },
   {
     "nombreCliente": "Tere",
+    "estado": "Pendiente",
     "fecha": "2025-11-19",
     "ubicacion": "FEI",
     "productos": [
@@ -73,11 +27,122 @@
   },
   {
     "nombreCliente": "Jorge",
+    "estado": "Pendiente",
     "fecha": "2025-11-13",
     "ubicacion": "zxczxc",
     "productos": [
       "Sandwiches de jamon con queso canasta y pepinillos partidos en 4"
     ],
     "descripcion": "zxczxczx"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "estado": "Pendiente",
+    "fecha": "2025-11-12",
+    "ubicacion": "dfbfgf",
+    "productos": [
+      "Canapes de surimi"
+    ],
+    "descripcion": "Prueba"
+  },
+  {
+    "nombreCliente": "Cambiar estado con atajos",
+    "fecha": "2024-02-26",
+    "ubicacion": "dfbfgf",
+    "estado": "Pendiente",
+    "productos": [
+      "Mousse de chocolate",
+      "Tiramisú en vasito individual"
+    ],
+    "descripcion": "Prueba 2"
+  },
+  {
+    "nombreCliente": "vbdfndgndbsfb",
+    "estado": "Pendiente",
+    "fecha": "2025-11-27",
+    "ubicacion": "sdcsdvsd",
+    "productos": [
+      "Sandwiches de jamon con queso canasta y pepinillos partidos en 4"
+    ],
+    "descripcion": "Probando guardado de estados."
+  },
+  {
+    "nombreCliente": "vbdfndgndbsfb",
+    "estado": "Pendiente",
+    "fecha": "2025-11-22",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Lengua a la mexicana"
+    ],
+    "descripcion": "Prueba estados 2"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "estado": "Pendiente",
+    "fecha": "2025-11-29",
+    "ubicacion": "sdcsdvsd",
+    "productos": [
+      "Tiramisú en vasito individual"
+    ],
+    "descripcion": "Guardado de estados 3"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "estado": "Completado",
+    "fecha": "2025-11-28",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Lengua a la mexicana",
+      "Mousse de chocolate"
+    ],
+    "descripcion": "asdsadsa"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "estado": "Pendiente",
+    "fecha": "2025-11-29",
+    "ubicacion": "Xalapa",
+    "productos": [
+      "Canapes de surimi"
+    ],
+    "descripcion": "Prueba"
+  },
+  {
+    "nombreCliente": "Serggy",
+    "estado": "Pendiente",
+    "fecha": "2025-11-19",
+    "ubicacion": "Calle Falsa 123",
+    "personas": 50,
+    "precioPersona": 80,
+    "productos": [
+      {
+        "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+        "cantidad": 10,
+        "precioUnitario": 19.99,
+        "subtotal": 200
+      },
+      {
+        "nombre": "Canapes de surimi",
+        "cantidad": 10,
+        "precioUnitario": 19.99,
+        "subtotal": 200
+      },
+      {
+        "nombre": "Lengua a la mexicana",
+        "cantidad": 10,
+        "precioUnitario": 19.99,
+        "subtotal": 200
+      },
+      {
+        "nombre": "Cupcakes",
+        "cantidad": 15,
+        "precioUnitario": 20,
+        "subtotal": 300
+      }
+    ],
+    "totalProductos": 900,
+    "totalPersonas": 4000,
+    "totalEvento": 4900,
+    "descripcion": "Urgente"
   }
 ]

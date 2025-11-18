@@ -1,12 +1,7 @@
-// =====================
-//  MOSTRAR FORMULARIO
-// =====================
+// Mostrar formulario
 document.getElementById("formAgregar").style.display = "block";
 
-
-// ============================
-//  CARGAR PRODUCTOS DESDE API
-// ============================
+// Cargar productos desde backend
 fetch('/api/productos')
   .then(res => res.json())
   .then(productos => {
@@ -18,7 +13,7 @@ fetch('/api/productos')
       const safeName = encodeURIComponent(prod.nombreProducto);
 
       div.innerHTML = `
-        <label style="display:block; margin-bottom:5px;">
+        <label>
           ${prod.nombreProducto} — $${prod.precio} (${prod.categoria})
           <input type="number" min="0" value="0"
             class="cantidadProducto"
@@ -31,17 +26,10 @@ fetch('/api/productos')
 
       cont.appendChild(div);
     });
-  })
-  .catch(err => {
-    console.error("Error al cargar productos:", err);
-    document.getElementById('listaProductos').innerHTML =
-      '<p style="color:red;">Error al cargar productos.</p>';
   });
 
 
-// ===============================
-//  PRECIO POR PERSONA POR RANGOS
-// ===============================
+// Precio por persona por rangos
 function calcularPrecioPorPersona(personas) {
   if (personas >= 30 && personas <= 60) return 80;
   if (personas >= 61 && personas <= 100) return 60;
@@ -51,10 +39,8 @@ function calcularPrecioPorPersona(personas) {
 }
 
 
-// =====================
-//  GUARDAR NUEVO EVENTO
-// =====================
-document.getElementById('formAgregar').addEventListener('submit', function (e) {
+// Guardar evento
+document.getElementById('formAgregar').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const personas = parseInt(document.getElementById('personas').value, 10);
@@ -85,10 +71,8 @@ document.getElementById('formAgregar').addEventListener('submit', function (e) {
 
   const totalEvento = Math.ceil(totalProductos + totalPersonas);
 
-  // OBJETO FINAL A ENVIAR AL BACKEND
   const nuevoEvento = {
     nombreCliente: document.getElementById('nombreCliente').value,
-    estado: document.getElementById('estado').value,      // ← ✔ SE AGREGA ESTADO
     fecha: document.getElementById('fecha').value,
     ubicacion: document.getElementById('ubicacion').value,
     personas,
@@ -100,21 +84,14 @@ document.getElementById('formAgregar').addEventListener('submit', function (e) {
     descripcion: document.getElementById('descripcion').value
   };
 
-  // ==========================
-  //  GUARDAR EN BACKEND
-  // ==========================
   fetch('/api/eventos', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(nuevoEvento)
   })
-    .then(res => res.json())
-    .then(() => {
-      alert("✅ Evento guardado correctamente");
-      document.getElementById('formAgregar').reset();
-    })
-    .catch(err => {
-      console.error("Error al guardar el evento:", err);
-      alert("❌ Error al guardar el evento");
-    });
+  .then(res => res.json())
+  .then(() => {
+    alert("✅ Evento guardado correctamente");
+    document.getElementById('formAgregar').reset();
+  });
 });

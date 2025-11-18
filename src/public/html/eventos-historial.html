@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Eventos - Servicios de Catering</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="branding">
+      <a href="/" class="logo-link">
+        <img src="/img/logo-chef.png" alt="Logo Chef" class="logo">
+      </a>
+      <h1>Nohelly Armas Morgado</h1>
+      <p>Servicios de Catering</p>
+    </div>
+  </header>
+
+  <main>
+    <h2>Historial de eventos</h2>
+
+    <section class="filtros-container">
+
+      <div class="filtro">
+        <label for="filtro-nombre">Buscar cliente</label>
+        <input type="text" id="filtro-nombre" placeholder="Ej. Carlos Pérez">
+      </div>
+
+      <div class="filtro">
+        <label for="filtro-desde">Desde</label>
+        <input type="date" id="filtro-desde">
+      </div>
+
+      <div class="filtro">
+        <label for="filtro-hasta">Hasta</label>
+        <input type="date" id="filtro-hasta">
+      </div>
+
+      <div class="orden-container">
+        <button class="orden-btn activo" id="orden-fecha">
+          Ordenar por Fecha
+        </button>
+        <button class="orden-btn" id="orden-cliente">
+          Ordenar por Cliente
+        </button>
+      </div>
+    </section>
+
+    <section>
+      <div id="tabla-historial" class="tabla-container">
+        <p>Cargando eventos...</p>
+      </div>
+    </section>
+
+    <div class="botones">
+      <a href="/" class="btn-link">Volver al inicio</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <script src="/js/eventos-historial.js"></script>
+</body>
+</html>
