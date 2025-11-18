@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario de Dulces</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Inventario de Dulces</h1>
+    <p>Consulta y actualiza las cantidades disponibles</p>
+  </header>
+
+  <main>
+    <section>
+      <table class="tabla-inventario">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaInventario">
+          <!-- Aquí se cargan los productos dinámicamente -->
+        </tbody>
+      </table>
+
+      <!-- Mensaje de confirmación -->
+      <p id="mensaje" style="color: green; font-weight: bold;"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <!-- Script de inventario -->
+  <script src="/js/inventario.js"></script>
+</body>
+</html>
