@@ -15,6 +15,7 @@ fetch('/api/eventos')
 
         document.getElementById("fecha").textContent = evento.fecha || "Sin fecha";
         document.getElementById("ubicacion").textContent = evento.ubicacion || "Sin ubicación";
+        document.getElementById("estado").textContent = evento.estado || "Sin estado asignado";
         document.getElementById("textoDescripcion").textContent = evento.descripcion || "Sin descripción";
 
         const lista = document.getElementById("listaProductos");

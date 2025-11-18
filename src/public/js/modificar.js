@@ -27,6 +27,7 @@ Promise.all([
   document.getElementById('nombreCliente').value = evento.nombreCliente;
   document.getElementById('fecha').value = evento.fecha;
   document.getElementById('ubicacion').value = evento.ubicacion;
+  document.getElementById('estado').value = evento.estado;
   document.getElementById('descripcion').value = evento.descripcion || '';
 
   // ✅ CARGAR PRODUCTOS DISPONIBLES CON CHECKBOXES
@@ -71,6 +72,7 @@ document.getElementById("formModificar").addEventListener("submit", (e) => {
     nombreCliente: document.getElementById('nombreCliente').value,
     fecha: document.getElementById('fecha').value,
     ubicacion: document.getElementById('ubicacion').value,
+    estado: document.getElementById('estado').value,
     productos: productosSeleccionados,
     descripcion: document.getElementById('descripcion').value
   };

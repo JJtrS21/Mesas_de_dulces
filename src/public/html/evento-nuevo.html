@@ -8,11 +8,19 @@
 <body>
 
   <header class="site-header">
-    <h1>Agregar nuevo evento</h1>
+    <div class="branding">
+      <a href="/" class="logo-link">
+        <img src="/img/logo-chef.png" alt="Logo Chef" class="logo">
+      </a>
+      <h1>Nohelly Armas Morgado</h1>
+      <p>Servicios de Catering</p>
+    </div>
   </header>
 
   <main>
     <form id="formAgregar">
+      <h2>Agregar nuevo evento</h2>
+
       <label>Nombre del cliente</label>
       <input type="text" id="nombreCliente" required>
 
@@ -21,6 +29,13 @@
 
       <label>Ubicación</label>
       <input type="text" id="ubicacion" required>
+
+      <label>Estado del evento</label>
+      <select id="estado" required>
+        <option value= "Pendiente">Pendiente</option>
+        <option value= "Completado">Completado</option>
+        <option value= "Cancelado">Cancelado</option>
+      </select>
 
       <label>Selecciona los productos</label>
       <ul id="listaProductos">
