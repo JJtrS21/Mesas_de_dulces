@@ -50,6 +50,18 @@ function calcularPrecioPorPersona(personas) {
   return 0;
 }
 
+  document.getElementById("personas").addEventListener("input", () => {
+    const personas = parseInt(document.getElementById("personas").value);
+
+    if (!isNaN(personas)) {
+      const precio = calcularPrecioPorPersona(personas);
+      document.getElementById("precioPersona").value = precio;
+    } else {
+      document.getElementById("precioPersona").value = "";
+    }
+});
+
+
 
 // =====================
 //  GUARDAR NUEVO EVENTO
