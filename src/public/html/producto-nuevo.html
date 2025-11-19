@@ -2,30 +2,66 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Agregar nuevo Producto</title>
+  <title>Agregar Producto</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h2>Agregar nuevo Producto</h2>
-  
 
-<form id="formAgregar" style="display:none;">
-  <h3>Agregar nuevo Producto</h3>
-  <label>Nombre del Producto: <input type="text" id="nombreProducto" required></label><br><br>
-  <label>Precio: <input type="number" id="precio" required></label><br><br>
-  <form><label>Categoría:
-    <select id="categoria" required>
-      <option value="" disabled selected>Seleccione una categoría</option>
-      <option value="Bocadillos">Bocadillos Salados</option>
-      <option value="Salados">Plato Fuerte</option>
-      <option value="Postres">Postres</option>
-      <option value="Otros">Entrada</option>
-    </select>
-  <button type="submit">Guardar evento</button>
+  <!-- Encabezado unificado -->
+  <header class="site-header">
+    <div class="branding">
+      <a href="/" class="logo-link">
+        <img src="/img/logo-chef.png" alt="Logo Chef" class="logo">
+      </a>
+      <div class="brand-text">
+        <h1>Nohelly Armas Morgado</h1>
+        <p>Servicios de Catering</p>
+      </div>
+    </div>
 
-  <br>
-  <p><a href="index.html" id="btn-new">Volver al inicio</a></p>
-</form>
+    <nav class="nav-acciones">
+      <a href="/html/inventario.html" class="nav-btn">📦 Inventario</a>
+      <a href="/html/producto-nuevo.html" class="nav-btn">🧁 Nuevo producto</a>
+      <a href="/html/evento-nuevo.html" class="nav-btn">🎉 Nuevo evento</a>
+      <a href="/html/eventos-historial.html" class="nav-btn">📜 Historial de eventos</a>
+    </nav>
+  </header>
 
-<script src="/js/producto-nuevo.js"></script>
+  <main>
+    <h2>Agregar nuevo producto</h2>
+
+    <section>
+      <form id="formProducto">
+
+        <label><strong>Nombre del producto:</strong></label>
+        <input type="text" id="nombreProducto" required>
+
+        <label><strong>Precio:</strong></label>
+        <input type="number" id="precio" min="1" required>
+
+        <label><strong>Categoría:</strong></label>
+        <select id="categoria" required>
+          <option value="">Seleccionar categoría...</option>
+          <option value="Bocadillos Salados">Bocadillos Salados</option>
+          <option value="Plato Fuerte">Plato Fuerte</option>
+          <option value="Postres">Postres</option>
+          <option value="Entrada">Entrada</option>
+        </select>
+
+        <button type="submit" class="btn-primary">Guardar producto</button>
+      </form>
+    </section>
+
+    <div class="botones">
+      <a href="/" class="btn-link">Volver al inicio</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
+  </footer>
+
+  <script src="/js/producto-nuevo.js"></script>
 </body>
 </html>

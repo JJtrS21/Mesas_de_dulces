@@ -32,7 +32,7 @@ Promise.all([
   document.getElementById('nombreCliente').value = evento.nombreCliente;
   document.getElementById('fecha').value = evento.fecha;
   document.getElementById('ubicacion').value = evento.ubicacion;
-  document.getElementById('estado').value = evento.estado;   // ✔ INCLUIDO
+  document.getElementById('estado').value = evento.estado; 
   document.getElementById('personas').value = evento.personas;
   document.getElementById('precioPersona').value = evento.precioPersona;
   document.getElementById('descripcion').value = evento.descripcion || '';
@@ -58,16 +58,19 @@ Promise.all([
     fila.classList.add("prod-item");
 
     fila.innerHTML = `
-      <label>
+      <label style="display:block; margin-bottom: 8px;">
         <input type="checkbox" class="checkProd" data-nombre="${prod.nombreProducto}"
-               ${cantidad > 0 ? "checked" : ""}>
-        ${prod.nombreProducto} — $${prod.precio} (${prod.categoria})
-      </label>
+              ${cantidad > 0 ? "checked" : ""}>
 
-      <input type="number" min="1" class="cantProd" 
-             data-nombre="${prod.nombreProducto}"
-             value="${cantidad > 0 ? cantidad : ''}"
-             ${cantidad > 0 ? "" : "disabled"}>
+        ${prod.nombreProducto} — $${prod.precio} (${prod.categoria})
+
+        <input type="number" min="1"
+              class="cantProd"
+              data-nombre="${prod.nombreProducto}"
+              value="${cantidad > 0 ? cantidad : ''}"
+              ${cantidad > 0 ? "" : "disabled"}
+              style="width:70px; margin-left:10px;">
+      </label>
     `;
 
     cont.appendChild(fila);
