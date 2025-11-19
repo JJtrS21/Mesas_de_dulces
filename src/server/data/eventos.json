@@ -1,40 +1,125 @@
 [
   {
     "nombreCliente": "Serggy",
-    "estado": "Pendiente",
     "fecha": "2025-11-19",
     "ubicacion": "Calle Falsa 123",
+    "estado": "Pendiente",
     "personas": 50,
     "precioPersona": 80,
     "productos": [
       {
         "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
-        "cantidad": 10,
-        "precioUnitario": 20,
-        "subtotal": 200
+        "cantidad": 10
       },
       {
         "nombre": "Canapes de surimi",
-        "cantidad": 10,
-        "precioUnitario": 20,
-        "subtotal": 200
+        "cantidad": 10
       },
       {
         "nombre": "Lengua a la mexicana",
-        "cantidad": 10,
-        "precioUnitario": 20,
-        "subtotal": 200
+        "cantidad": 10
       },
       {
         "nombre": "Cupcakes",
-        "cantidad": 15,
-        "precioUnitario": 20,
-        "subtotal": 300
+        "cantidad": 15
       }
     ],
-    "totalProductos": 900,
-    "totalPersonas": 4000,
-    "totalEvento": 4900,
     "descripcion": "Urgente"
+  },
+  {
+    "nombreCliente": "Jorge",
+    "estado": "Pendiente",
+    "fecha": "2025-11-21",
+    "ubicacion": "José Cardel",
+    "personas": 100,
+    "precioPersona": 60,
+    "productos": [
+      {
+        "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+        "cantidad": 100,
+        "precioUnitario": 20,
+        "subtotal": 2000
+      },
+      {
+        "nombre": "Canapes de surimi",
+        "cantidad": 100,
+        "precioUnitario": 20,
+        "subtotal": 2000
+      },
+      {
+        "nombre": "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
+        "cantidad": 100,
+        "precioUnitario": 20,
+        "subtotal": 2000
+      },
+      {
+        "nombre": "Mousse de chocolate",
+        "cantidad": 100,
+        "precioUnitario": 20,
+        "subtotal": 2000
+      }
+    ],
+    "totalProductos": 8000,
+    "totalPersonas": 6000,
+    "totalEvento": 14000,
+    "descripcion": "Entrega lejana"
+  },
+  {
+    "nombreCliente": "Hector",
+    "estado": "Pendiente",
+    "fecha": "2026-01-01",
+    "ubicacion": "Xalapa",
+    "personas": 30,
+    "precioPersona": 80,
+    "productos": [
+      {
+        "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+        "cantidad": 30,
+        "precioUnitario": 20,
+        "subtotal": 600
+      },
+      {
+        "nombre": "Sopa de coditos",
+        "cantidad": 30,
+        "precioUnitario": 20,
+        "subtotal": 600
+      }
+    ],
+    "totalProductos": 1200,
+    "totalPersonas": 2400,
+    "totalEvento": 3600,
+    "descripcion": "Falta un tiempo."
+  },
+  {
+    "nombreCliente": "Carlos Perez Jr.",
+    "estado": "Completado",
+    "fecha": "2025-10-26",
+    "ubicacion": "Xalapa",
+    "personas": 50,
+    "precioPersona": 80,
+    "productos": [
+      {
+        "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+        "cantidad": 50,
+        "precioUnitario": 20,
+        "subtotal": 1000
+      },
+      {
+        "nombre": "Mousse de chocolate",
+        "cantidad": 50,
+        "precioUnitario": 20,
+        "subtotal": 1000
+      },
+      {
+        "nombre": "Cupcakes",
+        "cantidad": 50,
+        "precioUnitario": 20,
+        "subtotal": 1000
+      }
+    ],
+    "totalProductos": 3000,
+    "totalPersonas": 4000,
+    "totalEvento": 7000,
+    "descripcion": ""
   }
 ]
