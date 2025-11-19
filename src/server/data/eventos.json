@@ -10,19 +10,19 @@
       {
         "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
         "cantidad": 10,
-        "precioUnitario": 19.99,
+        "precioUnitario": 20,
         "subtotal": 200
       },
       {
         "nombre": "Canapes de surimi",
         "cantidad": 10,
-        "precioUnitario": 19.99,
+        "precioUnitario": 20,
         "subtotal": 200
       },
       {
         "nombre": "Lengua a la mexicana",
         "cantidad": 10,
-        "precioUnitario": 19.99,
+        "precioUnitario": 20,
         "subtotal": 200
       },
       {
