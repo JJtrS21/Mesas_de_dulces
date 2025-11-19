@@ -2,44 +2,38 @@
   {
     "id": "prod-001",
     "nombreProducto": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
-    "precio": 19.99,
-    "categoria": "Bocadillos Salados",
-    "cantidad": 12
+    "precio": 20,
+    "categoria": "Bocadillos Salados"
   },
   {
     "id": "prod-002",
     "nombreProducto": "Canapes de surimi",
-    "precio": 19.99,
-    "categoria": "Bocadillos Salados",
-    "cantidad": 11
+    "precio": 20,
+    "categoria": "Bocadillos Salados"
   },
   {
     "id": "prod-003",
     "nombreProducto": "Lengua a la mexicana",
-    "precio": 19.99,
-    "categoria": "Plato fuerte",
-    "cantidad": 2
+    "precio": 20,
+    "categoria": "Plato fuerte"
   },
   {
     "id": "prod-004",
     "nombreProducto": "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
-    "precio": 19.99,
-    "categoria": "Plato fuerte",
-    "cantidad": 6
+    "precio": 20,
+    "categoria": "Plato fuerte"
   },
   {
     "id": "prod-005",
     "nombreProducto": "Mousse de chocolate",
-    "precio": 19.99,
-    "categoria": "Postres",
-    "cantidad": 4
+    "precio": 20,
+    "categoria": "Postres"
   },
   {
     "id": "prod-006",
     "nombreProducto": "Tiramisú en vasito individual",
-    "precio": 19.99,
-    "categoria": "Postres",
-    "cantidad": 20
+    "precio": 20,
+    "categoria": "Postres"
   },
   {
     "id": "prod-007",
