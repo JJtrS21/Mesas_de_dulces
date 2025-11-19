@@ -1,9 +1,9 @@
 //Importaciones
-const express = require('express'); 
-const fs = require('fs'); 
-const cors = require('cors');  
-const bodyParser = require('body-parser');
-const path = require('path');
+const express = require('express'); //Servidor
+const fs = require('fs'); //Lectura y escritura de archivos
+const cors = require('cors');  //Seguridad ante origenes externos
+const bodyParser = require('body-parser'); //Interprete de datos
+const path = require('path'); //Rutas seguras y compatibles
 const { error } = require('console');
 
 const app = express();
@@ -15,6 +15,170 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+//Importación para Inventario
+// Umbral global para bajo stock
+const UMBRAL_BAJO_STOCK = 5;
+
+function estadoStock(cantidad, umbral = UMBRAL_BAJO_STOCK) {
+  if (cantidad === 0) return 'Agotado';
+  if (cantidad <= umbral) return 'Reabastecer';
+  return 'Disponible';
+}
+
+// Obtener inventario
+app.get('/api/inventario', (req, res) => {
+  fs.readFile(path.join(__dirname, 'data', 'productos.json'), 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error al leer productos.json:', err);
+      return res.status(500).json({ error: 'Error al leer el archivo de productos' });
+    }
+
+    let productos = [];
+    try {
+      productos = JSON.parse(data);
+    } catch (e) {
+      return res.status(500).json({ error: 'JSON inválido en productos.json' });
+    }
+
+    const inventario = productos.map(p => ({
+      id: p.id,
+      nombreProducto: p.nombreProducto,
+      cantidad: p.cantidad || 0,
+      precio: p.precio,
+      categoria: p.categoria,
+      estado: estadoStock(p.cantidad || 0)
+    }));
+
+    res.json(inventario);
+  });
+});
+// Actualizar cantidad de un producto del inventario
+app.put('/api/inventario/:id', (req, res) => {
+  const id = req.params.id;
+  const cantidad = req.body?.cantidad; // ✅ más seguro
+
+  if (cantidad === undefined) {
+    return res.status(400).json({ error: 'No se envió cantidad en el body' });
+  }
+  if (!Number.isFinite(cantidad) || cantidad < 0) {
+    return res.status(400).json({ error: 'Cantidad inválida' });
+  }
+
+  const filePath = path.join(__dirname, 'data', 'productos.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Error al leer productos.json' });
+
+    let productos = [];
+    try {
+      productos = JSON.parse(data);
+    } catch (e) {
+      return res.status(500).json({ error: 'JSON inválido en productos.json' });
+    }
+
+    const idx = productos.findIndex(p => String(p.id) === String(id));
+    if (idx === -1) return res.status(404).json({ error: 'Producto no encontrado' });
+
+    productos[idx].cantidad = cantidad;
+
+    fs.writeFile(filePath, JSON.stringify(productos, null, 2), (errW) => {
+      if (errW) return res.status(500).json({ error: 'No se pudo guardar el inventario' });
+
+      const estado = estadoStock(cantidad);
+
+      res.json({
+        mensaje: 'Inventario actualizado',
+        producto: {
+          ...productos[idx],
+          estado
+        }
+      });
+    });
+  });
+});
+
+// Actualizar cantidad de un producto del inventario
+app.put('/api/inventario/:id', (req, res) => {
+  const id = req.params.id; // puede ser string
+  const { cantidad } = req.body;
+
+  if (!Number.isFinite(cantidad) || cantidad < 0) {
+    return res.status(400).json({ error: 'Cantidad inválida' });
+  }
+
+  const filePath = path.join(__dirname, 'data', 'productos.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) return res.status(500).json({ error: 'Error al leer productos.json' });
+
+    let productos = [];
+    try {
+      productos = JSON.parse(data);
+    } catch (e) {
+      return res.status(500).json({ error: 'JSON inválido en productos.json' });
+    }
+
+    const idx = productos.findIndex(p => String(p.id) === String(id));
+    if (idx === -1) return res.status(404).json({ error: 'Producto no encontrado' });
+
+    productos[idx].cantidad = cantidad;
+
+    fs.writeFile(filePath, JSON.stringify(productos, null, 2), (errW) => {
+      if (errW) return res.status(500).json({ error: 'No se pudo guardar el inventario' });
+
+      const umbral = Number.isFinite(productos[idx].umbralBajo) ? productos[idx].umbralBajo : UMBRAL_BAJO_STOCK;
+      res.json({
+        mensaje: 'Inventario actualizado',
+        producto: {
+          ...productos[idx],
+          estado: estadoStock(productos[idx].cantidad, umbral)
+        }
+      });
+    });
+  });
+});
+//Atajo para inventario
+app.get('/inventario', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'html', 'inventario.html'));
+});
+
+// Agregar un nuevo producto y persistir
+app.post('/api/productos', (req, res) => {
+  const nuevoProducto = req.body;
+  const filePath = path.join(__dirname, 'data', 'productos.json');
+
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    let productos = [];
+    if (!err && data) {
+      try {
+        productos = JSON.parse(data);
+      } catch (e) {
+        return res.status(500).json({ error: 'JSON inválido en productos.json' });
+      }
+    }
+
+    // Validaciones básicas
+    if (!nuevoProducto.id || !nuevoProducto.nombre) {
+      return res.status(400).json({ error: 'id y nombre son obligatorios' });
+    }
+    if (!Number.isFinite(nuevoProducto.cantidad)) nuevoProducto.cantidad = 0;
+    if (!Number.isFinite(nuevoProducto.precio)) nuevoProducto.precio = 0;
+
+    productos.push(nuevoProducto);
+
+    fs.writeFile(filePath, JSON.stringify(productos, null, 2), (errW) => {
+      if (errW) {
+        console.error('Error al guardar producto:', errW);
+        return res.status(500).json({ error: 'Error al guardar el producto' });
+      }
+      console.log('✅ Producto agregado:', nuevoProducto);
+      res.json({ mensaje: 'Producto agregado correctamente', producto: nuevoProducto });
+    });
+  });
+});
+
+
+//Middlewares
 
 // Página principal
 app.get('/', (req, res) => { 
