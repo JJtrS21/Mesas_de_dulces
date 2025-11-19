@@ -44,8 +44,13 @@
   {
     "id": "prod-007",
     "nombreProducto": "Cupcakes",
-    "precio": "20",
-    "categoria": "Postres",
-    "cantidad": 12
+    "precio": 20,
+    "categoria": "Postres"
+  },
+  {
+    "nombreProducto": "Sopa de coditos",
+    "precio": 20,
+    "categoria": "Entrada",
+    "id": "prod-008"
   }
 ]
