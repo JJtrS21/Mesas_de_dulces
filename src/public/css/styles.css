@@ -476,3 +476,46 @@ textarea {
     flex-direction: column;
   }
 }
+/* 📦Tabla de inventario de dulces */
+.tabla-inventario {
+  width: 100%;
+  margin: 25px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tabla-inventario thead {
+  background-color: var(--azul);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tabla-inventario th,
+.tabla-inventario td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.tabla-inventario tr:nth-child(even) {
+  background-color: var(--gris-claro);
+}
+
+.tabla-inventario tr:hover {
+  background-color: #e6f3ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* Contenedor para darle aire */
+.tabla-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 200px;
+}
