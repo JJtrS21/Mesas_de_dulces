@@ -1,37 +1,50 @@
 [
   {
+    "id": "prod-001",
     "nombreProducto": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
     "precio": 19.99,
     "categoria": "Bocadillos Salados"
   },
   {
+    "id": "prod-002",
     "nombreProducto": "Canapes de surimi",
     "precio": 19.99,
     "categoria": "Bocadillos Salados"
   },
   {
+    "id": "prod-003",
     "nombreProducto": "Lengua a la mexicana",
     "precio": 19.99,
     "categoria": "Plato fuerte"
   },
   {
+    "id": "prod-004",
     "nombreProducto": "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
     "precio": 19.99,
     "categoria": "Plato fuerte"
   },
   {
+    "id": "prod-005",
     "nombreProducto": "Mousse de chocolate",
     "precio": 19.99,
     "categoria": "Postres"
   },
   {
+    "id": "prod-006",
     "nombreProducto": "Tiramisú en vasito individual",
     "precio": 19.99,
     "categoria": "Postres"
   },
   {
+    "id": "prod-007",
     "nombreProducto": "Cupcakes",
-    "precio": "20",
+    "precio": 20,
     "categoria": "Postres"
+  },
+  {
+    "nombreProducto": "Sopa de coditos",
+    "precio": 20,
+    "categoria": "Entrada",
+    "id": "prod-008"
   }
 ]

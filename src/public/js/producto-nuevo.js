@@ -1,38 +1,40 @@
-  let datosJson = [];
+document.getElementById("formProducto").addEventListener("submit", (e) => {
+  e.preventDefault();
 
-  // Leer archivo JSON
- fetch('Productos.json')
-    .then(response => response.json())
+  const nombreProducto = document.getElementById("nombreProducto").value.trim();
+  const precio = parseFloat(document.getElementById("precio").value);
+  const categoria = document.getElementById("categoria").value;
+
+  if (!nombreProducto || !categoria || isNaN(precio)) {
+    alert("⚠️ Todos los campos son obligatorios.");
+    return;
+  }
+
+  const nuevoProducto = {
+    nombreProducto,
+    precio,
+    categoria
+  };
+
+  fetch("/api/productos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(nuevoProducto)
+  })
+    .then(res => res.json())
     .then(data => {
-      datosJson = data;
-      document.getElementById("formAgregar").style.display = "block";
-    })
-    .catch(error => console.error('Error al cargar el archivo JSON:', error));
+      console.log("Servidor respondió:", data);
 
-  // Agregar nuevo evento
-  document.getElementById("formAgregar").addEventListener("submit", function(event) {
-    event.preventDefault();
-  fetch('http://localhost:3000/api/productos', {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      nombreProducto: document.getElementById('nombreProducto').value,
-      precio: document.getElementById('precio').value,
-      categoria: document.getElementById('categoria').value
+      if (data.error) {
+        alert("❌ " + data.error);
+        return;
+      }
+
+      alert("✅ Producto agregado correctamente");
+      document.getElementById("formProducto").reset();
     })
-  })
-  .then(res => res.json())
-  .then(data => {
-    console.log('Servidor respondió:', data);
-    alert("✅ Evento agregado correctamente.");
-      
-  // Limpiar formulario
-    document.getElementById("formAgregar").reset();
-  })
-  .catch(err => {
-    console.error('Error al enviar datos:', err);
-    alert("❌ Error al guardar el evento.");
-  });
+    .catch(err => {
+      console.error("Error al guardar producto:", err);
+      alert("❌ Error al guardar producto");
+    });
 });
