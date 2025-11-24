@@ -128,55 +128,84 @@ Promise.all([
 
 
 // ===============================
-//        GUARDAR CAMBIOS
+//       GUARDAR CAMBIOS (REEMPLAZAR)
 // ===============================
-document.getElementById("formModificar").addEventListener("submit", e => {
+document.getElementById("formModificar").addEventListener("submit", (e) => {
   e.preventDefault();
 
+  // Leer personas y precio por persona (tal como están en el DOM)
+  const personas = parseInt(document.getElementById("personas").value, 10) || 0;
+  const precioPersona = parseFloat(document.getElementById("precioPersona").value) || 0;
+  const totalPersonas = Math.ceil(personas * precioPersona);
+
+  // Procesar productos seleccionados (extraer precio del texto del label)
   const productosActualizados = [];
+  let totalProductos = 0;
 
   document.querySelectorAll(".checkProd").forEach(ch => {
-    if (ch.checked) {
-      const nombre = ch.dataset.nombre;
-      const inp = document.querySelector(
-        `.cantProd[data-nombre="${nombre}"]`
-      );
+    if (!ch.checked) return;
 
-      const cantidad = parseInt(inp.value);
+    const nombre = ch.dataset.nombre;
+    const inputCantidad = document.querySelector(`.cantProd[data-nombre="${nombre}"]`);
+    const cantidad = parseInt(inputCantidad.value, 10) || 0;
 
-      if (cantidad > 0) {
-        productosActualizados.push({
-          nombre,
-          cantidad
-        });
-      }
+    // Extraer precio unitario desde el label que contiene el checkbox
+    // El label tiene texto como: "NombreProducto — $19.99 (Categoría)"
+    let precioUnit = 0;
+    const label = ch.closest("label");
+    if (label) {
+      const txt = label.textContent || "";
+      const m = txt.match(/—\s*\$([0-9]+(?:\.[0-9]+)?)/);
+      if (m) precioUnit = parseFloat(m[1]);
     }
+
+    const subtotal = Math.ceil(precioUnit * cantidad);
+
+    productosActualizados.push({
+      nombre,
+      cantidad,
+      precioUnitario: precioUnit,
+      subtotal
+    });
+
+    totalProductos += subtotal;
   });
 
+  const totalEvento = Math.ceil(totalProductos + totalPersonas);
+
+  // Construir el objeto del evento con los nombres de campo que usas
   const eventoActualizado = {
-    nombreCliente: document.getElementById('nombreCliente').value,
-    fecha: document.getElementById('fecha').value,
-    ubicacion: document.getElementById('ubicacion').value,
-    estado: document.getElementById('estado').value,  // ✔ AGREGADO
-    personas: parseInt(document.getElementById('personas').value),
-    precioPersona: parseInt(document.getElementById('precioPersona').value),
+    nombreCliente: document.getElementById("nombreCliente").value.trim(),
+    fecha: document.getElementById("fecha").value,
+    ubicacion: document.getElementById("ubicacion").value.trim(),
+    descripcion: document.getElementById("descripcion").value.trim(),
+
+    personas: personas,
+    precioPersona: precioPersona,
+
     productos: productosActualizados,
-    descripcion: document.getElementById('descripcion').value
+
+    totalProductos: totalProductos,
+    totalPersonas: totalPersonas,
+    totalEvento: totalEvento,
+
+    estado: document.getElementById("estado").value
   };
 
+  // Enviar PUT al servidor
   fetch(`/api/eventos/${idEvento}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(eventoActualizado)
   })
-  .then(res => res.json())
-  .then(data => {
-    alert("✅ Evento actualizado correctamente.");
-    window.location.href = `detalle.html?id=${idEvento}`;
-  })
-  .catch(err => {
-    console.error("Error al guardar:", err);
-    alert("❌ Error al guardar los cambios.");
-  });
+    .then(res => res.json())
+    .then(() => {
+      alert("✅ Evento actualizado correctamente");
+      window.location.href = `detalle.html?id=${idEvento}`;
+    })
+    .catch(err => {
+      console.error("Error al guardar:", err);
+      alert("❌ Error al guardar los cambios.");
+    });
 });
 
