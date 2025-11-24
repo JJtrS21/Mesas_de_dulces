@@ -6,12 +6,6 @@
     "categoria": "Bocadillos Salados"
   },
   {
-    "id": "prod-002",
-    "nombreProducto": "Canapes de surimi",
-    "precio": 20,
-    "categoria": "Bocadillos Salados"
-  },
-  {
     "id": "prod-003",
     "nombreProducto": "Lengua a la mexicana",
     "precio": 20,
@@ -46,5 +40,11 @@
     "precio": 20,
     "categoria": "Entrada",
     "id": "prod-008"
+  },
+  {
+    "nombreProducto": "Canapés de Surimi",
+    "precio": 20,
+    "categoria": "Bocadillos Salados",
+    "id": "prod-009"
   }
 ]

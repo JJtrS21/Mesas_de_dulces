@@ -27,7 +27,7 @@ app.get('/producto-nuevo', (req, res) => {
 });
 
 // ================================
-// INVENTARIO (NO MODIFICADO)
+// INVENTARIO
 // ================================
 
 const UMBRAL_BAJO_STOCK = 5;
@@ -107,7 +107,7 @@ function escribirArchivo(ruta, contenido, callback) {
 }
 
 // ===============================
-//  LISTAR PRODUCTOS
+// PRODUCTOS
 // ===============================
 app.get('/api/productos', (req, res) => {
   leerArchivo(RUTA_PRODUCTOS, (err, productos) => {
@@ -119,9 +119,6 @@ app.get('/api/productos', (req, res) => {
   });
 });
 
-// ===============================
-//  AGREGAR PRODUCTO (CORREGIDO)
-// ===============================
 app.post('/api/productos', (req, res) => {
   const nuevoProducto = req.body;
 
@@ -168,6 +165,77 @@ app.post('/api/productos', (req, res) => {
       res.json({
         mensaje: "Producto agregado correctamente",
         producto: nuevoProducto
+      });
+    });
+  });
+});
+
+app.get('/api/productos/:id', (req, res) => {
+  const id = req.params.id;
+
+  leerArchivo(RUTA_PRODUCTOS, (err, productos) => {
+    if (err) return res.status(500).json({ error: "No se pudo leer productos" });
+
+    const producto = productos.find(p => p.id === id);
+
+    if (!producto) {
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+
+    res.json(producto);
+  });
+});
+
+app.put('/api/productos/:id', (req, res) => {
+  const id = req.params.id;
+  const cambios = req.body;
+
+  leerArchivo(RUTA_PRODUCTOS, (err, productos) => {
+    if (err) return res.status(500).json({ error: "No se pudo leer productos" });
+
+    const index = productos.findIndex(p => p.id === id);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+
+    // Evitar cambios de ID
+    cambios.id = productos[index].id;
+
+    // Actualizar producto
+    productos[index] = { ...productos[index], ...cambios };
+
+    escribirArchivo(RUTA_PRODUCTOS, productos, err => {
+      if (err) return res.status(500).json({ error: "Error al guardar producto" });
+
+      res.json({
+        mensaje: "Producto actualizado correctamente",
+        producto: productos[index]
+      });
+    });
+  });
+});
+
+app.delete('/api/productos/:id', (req, res) => {
+  const id = req.params.id;
+
+  leerArchivo(RUTA_PRODUCTOS, (err, productos) => {
+    if (err) return res.status(500).json({ error: "No se pudo leer productos" });
+
+    const index = productos.findIndex(p => p.id === id);
+
+    if (index === -1) {
+      return res.status(404).json({ error: "Producto no encontrado" });
+    }
+
+    const eliminado = productos.splice(index, 1);
+
+    escribirArchivo(RUTA_PRODUCTOS, productos, err => {
+      if (err) return res.status(500).json({ error: "Error al guardar cambios" });
+
+      res.json({
+        mensaje: "Producto eliminado correctamente",
+        eliminado
       });
     });
   });

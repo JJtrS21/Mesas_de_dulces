@@ -1,6 +1,6 @@
-/* =====================
-   🌎 Estilos globales
-   ===================== */
+/* ============================================================
+   🌎  ESTILOS GLOBALES
+============================================================ */
 
 /* --- Paleta de colores --- */
 :root {
@@ -27,9 +27,9 @@ body {
   padding-bottom: 80px;
 }
 
-/* ============================
-   🟦 HEADER GENERAL + BOTONES
-   ============================ */
+/* ============================================================
+   🟦 HEADER + NAVEGACIÓN
+============================================================ */
 
 .site-header {
   background: var(--azul);
@@ -89,23 +89,22 @@ body {
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 
-/* NAV versión móvil */
+/* --- NAV móvil --- */
 @media (max-width: 768px) {
   .site-header {
     flex-direction: column;
     gap: 12px;
     text-align: center;
   }
-
   .nav-acciones {
     flex-wrap: wrap;
     justify-content: center;
   }
 }
 
-/* ============================
-   🔽 Resto de tus estilos
-   ============================ */
+/* ============================================================
+   📄 CONTENIDO GENERAL
+============================================================ */
 
 /* --- Contenedor principal --- */
 main {
@@ -137,9 +136,9 @@ footer {
   box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
 }
 
-/* ============================================
-   🎨 Estilos elegantes para formularios
-   ============================================ */
+/* ============================================================
+   📝 FORMULARIOS
+============================================================ */
 
 form {
   background: #ffffff;
@@ -150,7 +149,6 @@ form {
   margin: auto;
 }
 
-/* Inputs uniformes */
 form input,
 form select,
 form textarea {
@@ -171,21 +169,18 @@ form textarea:focus {
   box-shadow: 0 0 6px rgba(10, 111, 166, 0.35);
 }
 
-/* Etiquetas */
 form label {
   margin-top: 12px;
   font-weight: 700;
   color: #444;
 }
 
-/* Checkbox */
 form input[type="checkbox"] {
   width: auto;
   margin-right: 10px;
-  vertical-align: middle;
 }
 
-/* Lista tipo cards */
+/* --- Listas tipo cards --- */
 #listaProductos label {
   display: flex;
   align-items: center;
@@ -206,13 +201,13 @@ form input[type="checkbox"] {
   color: #333;
 }
 
-/* Textarea */
+/* --- Textarea --- */
 textarea {
   resize: vertical;
   height: 90px;
 }
 
-/* Botones */
+/* --- Botones --- */
 .botones {
   margin-top: 20px;
   display: flex;
@@ -248,9 +243,9 @@ textarea {
   background: rgba(10, 111, 166, 0.15);
 }
 
-/* ==================================
-   📊 Tabla de eventos
-   ================================== */
+/* ============================================================
+   📊 TABLA DE EVENTOS
+============================================================ */
 
 .tabla-eventos {
   width: 100%;
@@ -280,12 +275,6 @@ textarea {
   background-color: #f9f9f9;
 }
 
-.tabla-eventos tr:hover {
-  background-color: #ffeaa7;
-  transition: 0.3s;
-}
-
-/* Botón detalle */
 .btn-detalle {
   background-color: var(--coral);
   border: none;
@@ -327,9 +316,9 @@ textarea {
   background-color: #084d78;
 }
 
-/* ==================================
-   📦 Detalles de eventos
-   ================================== */
+/* ============================================================
+   📦 DETALLE DE EVENTOS
+============================================================ */
 
 .detalle-container {
   max-width: 750px;
@@ -346,9 +335,9 @@ textarea {
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* ==================================
-   🔍 Filtros del Historial
-   ================================== */
+/* ============================================================
+   🔍 FILTROS DEL HISTORIAL
+============================================================ */
 
 .filtros-container {
   background: #ffffff;
@@ -409,7 +398,6 @@ textarea {
   transform: scale(1.03);
 }
 
-/* Ordenamiento */
 .orden-container {
   width: 100%;
   display: flex;
@@ -439,9 +427,94 @@ textarea {
   background-color: var(--azul);
 }
 
-/* =============================
-   📱 Responsividad
-   ============================= */
+/* ============================================================
+   🍬 TABLA DE INVENTARIO + CONTROLES
+============================================================ */
+
+/* Contenedor general */
+.tabla-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 200px;
+}
+
+/* Barra de controles (buscador + filtro) */
+.controles {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.controles input[type="text"],
+.controles select {
+  padding: 10px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gris-borde);
+  outline: none;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.controles input[type="text"]:focus,
+.controles select:focus {
+  border-color: var(--azul);
+  box-shadow: 0 0 6px rgba(0, 80, 160, 0.3);
+}
+
+/* Tabla */
+.tabla-inventario {
+  width: 100%;
+  margin: 25px auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.tabla-inventario thead {
+  background-color: var(--azul);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tabla-inventario th,
+.tabla-inventario td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+
+.tabla-inventario tr:nth-child(even) {
+  background-color: var(--gris-claro);
+}
+
+/* Botón/Link Editar */
+.btn-editar {
+  color: var(--azul);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #e9f3ff;
+  transition: .2s;
+}
+
+.btn-editar:hover {
+  background: var(--azul);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   📱 RESPONSIVIDAD GENERAL
+============================================================ */
+
 @media (max-width: 768px) {
 
   form {
@@ -475,47 +548,8 @@ textarea {
   .orden-container {
     flex-direction: column;
   }
-}
-/* 📦Tabla de inventario de dulces */
-.tabla-inventario {
-  width: 100%;
-  margin: 25px auto;
-  border-collapse: collapse;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
 
-.tabla-inventario thead {
-  background-color: var(--azul);
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.tabla-inventario th,
-.tabla-inventario td {
-  padding: 14px 18px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-size: 15px;
-}
-
-.tabla-inventario tr:nth-child(even) {
-  background-color: var(--gris-claro);
-}
-
-.tabla-inventario tr:hover {
-  background-color: #e6f3ff;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-/* Contenedor para darle aire */
-.tabla-container {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  min-height: 200px;
+  .controles {
+    flex-direction: column;
+  }
 }

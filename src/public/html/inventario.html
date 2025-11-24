@@ -19,7 +19,7 @@
     </div>
 
     <nav class="nav-acciones">
-      <a href="/html/inventario.html" class="nav-btn">📦 Inventario</a>
+      <a href="/html/inventario.html" class="nav-btn">📔 Catálogo</a>
       <a href="/html/producto-nuevo.html" class="nav-btn">🧁 Nuevo producto</a>
       <a href="/html/evento-nuevo.html" class="nav-btn">🎉 Nuevo evento</a>
       <a href="/html/eventos-historial.html" class="nav-btn">📜 Historial de eventos</a>
@@ -28,21 +28,30 @@
 
   <main>
     <section>
-      <h2>Inventario de productos</h2>
+      <h2>Catálogo de productos</h2>
+
+      <!-- Controles de búsqueda -->
+      <div class="controles">
+        <input type="text" id="buscarInput" placeholder="Buscar producto...">
+        <select id="filtroCategoria">
+          <option value="">Todas las categorías</option>
+        </select>
+      </div>
+
       <table class="tabla-inventario">
         <thead>
           <tr>
             <th>Producto</th>
             <th>Precio</th>
+            <th>Acciones</th>
           </tr>
         </thead>
-        <tbody id="tablaInventario">
-        </tbody>
+        <tbody id="tablaInventario"></tbody>
       </table>
 
-      <!-- Mensaje de confirmación -->
       <p id="mensaje" style="color: green; font-weight: bold;"></p>
     </section>
+
     <!--Boton-->
     <div class="botones">
       <a href="/" class="btn-link">Volver al inicio</a>

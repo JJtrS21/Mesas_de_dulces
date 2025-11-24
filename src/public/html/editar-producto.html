@@ -2,9 +2,11 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Agregar Producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Producto</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
 
   <header class="site-header">
@@ -27,40 +29,44 @@
   </header>
 
   <main>
-    <h2>Agregar nuevo producto</h2>
-
     <section>
-      <form id="formProducto">
+      <h2>Editar Producto</h2>
 
-        <label><strong>Nombre del producto:</strong></label>
-        <input type="text" id="nombreProducto" required>
+      <form id="formEditarProducto">
+        <label for="nombre">Nombre del producto:</label>
+        <input type="text" id="nombre" required>
 
-        <label><strong>Precio:</strong></label>
-        <input type="number" id="precio" min="1" required>
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" min="0" step="0.01" required>
 
-        <label><strong>Categoría:</strong></label>
+        <label for="categoria">Categoría:</label>
         <select id="categoria" required>
-          <option value="">Seleccionar categoría...</option>
+          <option value="">-- Selecciona una categoría --</option>
           <option value="Bocadillos Salados">Bocadillos Salados</option>
           <option value="Plato Fuerte">Plato Fuerte</option>
-          <option value="Postres">Postres</option>
+          <option value="Postre">Postre</option>
           <option value="Entrada">Entrada</option>
         </select>
 
-        <button type="submit" class="btn-primary">Guardar producto</button>
+        <div class="botones">
+          <button type="submit" class="btn-primary">Guardar Cambios</button>
+          <button type="button" id="btnEliminarProducto" class="btn-detalle" 
+            style="background:#e74c3c; border:none;">
+          🗑 Eliminar producto
+        </button>
+          <a href="/html/inventario.html" class="btn-link">Cancelar</a>
+        </div>
       </form>
-    </section>
 
-    <div class="botones">
       <a href="/" class="btn-link">Volver al inicio</a>
-    </div>
 
+    </section>
   </main>
 
   <footer>
     <p>© 2025 Nohelly Armas Morgado — Servicios de Catering</p>
   </footer>
 
-  <script src="/js/producto-nuevo.js"></script>
+  <script src="/js/editar-producto.js"></script>
 </body>
 </html>

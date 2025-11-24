@@ -28,40 +28,29 @@
   },
   {
     "nombreCliente": "Jorge",
-    "estado": "Pendiente",
-    "fecha": "2025-11-21",
+    "fecha": "2025-11-19",
     "ubicacion": "José Cardel",
+    "estado": "Completado",
     "personas": 100,
     "precioPersona": 60,
     "productos": [
       {
         "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
-        "cantidad": 100,
-        "precioUnitario": 20,
-        "subtotal": 2000
+        "cantidad": 100
       },
       {
         "nombre": "Canapes de surimi",
-        "cantidad": 100,
-        "precioUnitario": 20,
-        "subtotal": 2000
+        "cantidad": 100
       },
       {
         "nombre": "Pechuga rellena de espinaca y queso crema con salsa de champiñones",
-        "cantidad": 100,
-        "precioUnitario": 20,
-        "subtotal": 2000
+        "cantidad": 100
       },
       {
         "nombre": "Mousse de chocolate",
-        "cantidad": 100,
-        "precioUnitario": 20,
-        "subtotal": 2000
+        "cantidad": 100
       }
     ],
-    "totalProductos": 8000,
-    "totalPersonas": 6000,
-    "totalEvento": 14000,
     "descripcion": "Entrega lejana"
   },
   {
@@ -120,6 +109,29 @@
     "totalProductos": 3000,
     "totalPersonas": 4000,
     "totalEvento": 7000,
+    "descripcion": ""
+  },
+  {
+    "nombreCliente": "Tere",
+    "fecha": "2025-12-03",
+    "ubicacion": "FEI",
+    "estado": "Pendiente",
+    "personas": 30,
+    "precioPersona": 80,
+    "productos": [
+      {
+        "nombre": "Sandwiches de jamon con queso canasta y pepinillos partidos en 4",
+        "cantidad": 30
+      },
+      {
+        "nombre": "Cupcakes",
+        "cantidad": 30
+      },
+      {
+        "nombre": "Cocacola 600",
+        "cantidad": 30
+      }
+    ],
     "descripcion": ""
   }
 ]
